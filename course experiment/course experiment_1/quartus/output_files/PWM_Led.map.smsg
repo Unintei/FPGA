@@ -1,1 +1,0 @@
-Warning (10268): Verilog HDL information at PWM_Led.v(80): always construct contains both blocking and non-blocking assignments File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment_1/.v/PWM_Led.v Line: 80
