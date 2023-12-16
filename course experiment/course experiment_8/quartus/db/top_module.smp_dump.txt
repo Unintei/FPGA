@@ -1,0 +1,8 @@
+
+State Machine - |top_module|ztj:ztj_inst|state_c
+Name state_c.IDLE state_c.EWR_SNY state_c.EWR_SNG state_c.EWY_SNR state_c.EWG_SNR 
+state_c.IDLE 0 0 0 0 0 
+state_c.EWG_SNR 1 0 0 0 1 
+state_c.EWY_SNR 1 0 0 1 0 
+state_c.EWR_SNG 1 0 1 0 0 
+state_c.EWR_SNY 1 1 0 0 0 

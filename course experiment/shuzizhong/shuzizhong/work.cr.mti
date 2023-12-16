@@ -1,0 +1,15 @@
+d:/Users/ASUS/Desktop/202005140214?????????/shuzizhong214syz/key/key_module.v {1 {vlog -work work -stats=none D:/Users/ASUS/Desktop/202005140214?????????/shuzizhong214syz/key/key_module.v
+Model Technology ModelSim DE-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module key_module
+
+Top level modules:
+	key_module
+
+} {} {}} d:/Users/ASUS/Desktop/202005140214?????????/shuzizhong214syz/key/key_module_tb.v {1 {vlog -work work -stats=none D:/Users/ASUS/Desktop/202005140214?????????/shuzizhong214syz/key/key_module_tb.v
+Model Technology ModelSim DE-64 vlog 10.6c Compiler 2017.07 Jul 26 2017
+-- Compiling module key_module_tb
+
+Top level modules:
+	key_module_tb
+
+} {} {}}

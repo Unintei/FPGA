@@ -1,0 +1,252 @@
+module shizhong(
+    clk    ,
+    rst_n  ,
+    seg_sel,
+    seg_ment
+);
+//参数定义
+parameter      T1S =50_000_;//0.001s
+parameter      T2MS=100_000;//2ms
+//输入信号定义
+input               clk    ;
+input               rst_n  ;
+//输出信号定义
+output[7:0]  seg_sel   ;//位选
+output[6:0]  seg_ment  ;//段选
+//输出信号reg定义
+reg   [7:0]  seg_sel   ;
+reg   [6:0]  seg_ment  ;
+//中间信号定义
+reg[3:0]        sel_data;//数码管显示用途 最大值9
+reg[3:0]        x;//时个位值 最大为9
+
+//数码管扫描时间
+reg[16:0]       t2ms;//2ms 最大值10_000
+wire            add_t2ms;
+wire            end_t2ms;
+reg[2:0]        t2ms_6;//6个2ms 最大值6
+wire            add_t2ms_6;
+wire            end_t2ms_6;
+
+reg[25:0]       t1_s;//1s 最大值50_000_000
+wire            add_t1_s;
+wire            end_t1_s;
+
+reg[3:0]        m_g;//秒个位 最大值9
+wire            add_m_g;
+wire            end_m_g;
+reg[2:0]        m_s;//秒十位 最大值5
+wire            add_m_s;
+wire            end_m_s;
+reg[3:0]        f_g;//分个位 最大值9
+wire            add_f_g;
+wire            end_f_g;
+reg[2:0]        f_s;//分十位 最大值5
+wire            add_f_s;
+wire            end_f_s;
+reg[3:0]        s_g;//时个位 最大值9
+wire            add_s_g;
+wire            end_s_g;
+reg[1:0]        s_s;//时十位 最大值2
+wire            add_s_s;
+wire            end_s_s;
+
+//计2ms 每位数码管扫描时间
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        t2ms <= 0;
+    end
+    else if(add_t2ms)begin
+        if(end_t2ms)
+            t2ms <= 0;
+        else
+            t2ms <= t2ms + 1;
+    end
+end
+
+assign add_t2ms =1 ;
+assign end_t2ms = add_t2ms && t2ms==T2MS-1 ;
+//计6个2ms 0-5 扫描6位数码管
+always @(posedge clk or negedge rst_n)begin 
+    if(!rst_n)begin
+        t2ms_6 <= 0;
+    end
+    else if(add_t2ms_6)begin
+        if(end_t2ms_6)
+            t2ms_6 <= 0;
+        else
+            t2ms_6 <= t2ms_6 + 1;
+    end
+end
+
+assign add_t2ms_6 = end_t2ms;
+assign end_t2ms_6 = add_t2ms_6 && t2ms_6==6-1 ;
+
+//sum:数码管扫描
+always@(posedge sys_clk or negedge sys_rst_n)
+	if(sys_rst_n == 1'b0)
+       seg_sel<=8'b111_1110;
+	else if( end_t2ms  )	begin
+	seg_sel <= {seg_sel[6:0],seg_sel[7]};   
+	end
+
+//各个数码管显示用途
+always  @(*)begin
+    if(t2ms_6==0)begin//第0位数码管用来显示秒个位
+        sel_data=m_g;//秒个位
+    end
+    else if(t2ms_6==1)begin//第1位数码管用来显示秒十位
+        sel_data=m_s;//秒十位
+    end
+    else if(t2ms_6==2)begin//第2位数码管用来显示分个位
+        sel_data=f_g;//分个位
+    end
+    else if(t2ms_6==3)begin//第3位数码管用来显示分十位
+        sel_data=f_s;//分十位
+    end
+    else if(t2ms_6==4)begin//第4位数码管用来显示时个位
+        sel_data=s_g;//时个位
+    end
+    else begin//第5位数码管用来显示时十位
+        sel_data=s_s;//时十位
+    end
+end
+//译码器
+always  @(posedge clk or negedge rst_n)begin
+    if(rst_n==1'b0)begin
+         seg_ment<=7'h7f;//不亮
+    end
+    else begin
+         case(sel_data)
+            0:seg_ment<=7'h01;//0
+            1:seg_ment<=7'h4f;//1
+            2:seg_ment<=7'h12;//2
+            3:seg_ment<=7'h06;//3
+            4:seg_ment<=7'h4c;//4
+            5:seg_ment<=7'h24;//5
+            6:seg_ment<=7'h20;//6
+            7:seg_ment<=7'h0f;//7
+            8:seg_ment<=7'h00;//8
+            9:seg_ment<=7'h04;//9
+            default:seg_ment<=7'h7f;//不亮
+         endcase
+    end  
+end 
+
+
+// 计1s   0.001s
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        t1_s <= 0;
+    end
+    else if(add_t1_s)begin
+        if(end_t1_s)
+            t1_s <= 0;
+        else
+            t1_s <= t1_s + 1;
+    end
+end
+
+assign add_t1_s =1 ;       
+assign end_t1_s = add_t1_s && t1_s==T1S-1 ;   
+//秒个位 0-9
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        m_g <= 0;
+    end
+    else if(add_m_g)begin
+        if(end_m_g)
+            m_g <= 0;
+        else
+            m_g <= m_g + 1;
+    end
+end
+
+assign add_m_g =end_t1_s ;       
+assign end_m_g = add_m_g && m_g==10-1 ;   
+//秒十位 0-5
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        m_s <= 0;
+    end
+    else if(add_m_s)begin
+        if(end_m_s)
+            m_s <= 0;
+        else
+            m_s <= m_s + 1;
+    end
+end
+
+assign add_m_s = end_m_g ;       
+assign end_m_s = add_m_s && m_s==6-1 ;   
+//分个位 0-9
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        f_g <= 0;
+    end
+    else if(add_f_g)begin
+        if(end_f_g)
+            f_g <= 0;
+        else
+            f_g <= f_g + 1;
+    end
+end
+
+assign add_f_g = end_m_s ;       
+assign end_f_g = add_f_g && f_g==10-1 ;   
+//分十位 0-5
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        f_s <= 0;
+    end
+    else if(add_f_s)begin
+        if(end_f_s)
+            f_s <= 0;
+        else
+            f_s <= f_s + 1;
+    end
+end
+
+assign add_f_s =end_f_g ;       
+assign end_f_s = add_f_s && f_s==6-1 ;   
+//时个位 0-9 0-3
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        s_g <= 0;
+    end
+    else if(add_s_g)begin
+        if(end_s_g)
+            s_g <= 0;
+        else
+            s_g <= s_g + 1;
+    end
+end
+
+assign add_s_g =end_f_s ;       
+assign end_s_g = add_s_g && s_g==x-1 ;   
+//时十位 0-2
+always @(posedge clk or negedge rst_n)begin
+    if(!rst_n)begin
+        s_s <= 0;
+    end
+    else if(add_s_s)begin
+        if(end_s_s)
+            s_s <= 0;
+        else
+            s_s <= s_s + 1;
+    end
+end
+
+assign add_s_s =end_s_g ;       
+assign end_s_s = add_s_s && s_s==3-1 ;
+//小时个位
+always  @(*)begin
+    if(s_s==2)begin
+        x=4;
+    end
+    else begin
+        x=10;
+    end
+end
+endmodule
+

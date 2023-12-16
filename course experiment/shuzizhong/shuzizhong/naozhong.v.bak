@@ -1,0 +1,47 @@
+module naozhong(
+	    clk    ,  
+	    rst_n  ,
+	    cnt2     ,  
+	    cnt3     ,  
+	    cnt4     ,  
+	    cnt5     .
+        led      ,
+        buzzer
+        
+
+);
+input                   clk         ;  
+input                   rst_n       ;    
+input  [ 3:0]          cnt2        ;  
+input  [ 3:0]          cnt3        ;  
+input  [ 3:0]          cnt4        ;  
+input  [ 3:0]          cnt5        ;  
+output                 led          ;
+output                  buzzer;
+reg     [ 3:0]          cnt2        ;  
+wire                    add_cnt2    ;  
+wire                    end_cnt2    ;  
+reg     [ 3:0]          cnt3        ;  
+wire                    add_cnt3    ;  
+wire                    end_cnt3    ;  
+reg     [ 3:0]          cnt4        ;  
+wire                    add_cnt4    ;  
+wire                    end_cnt4    ;  
+reg     [ 3:0]          cnt5        ;  
+wire                    add_cnt5    ;  
+wire                    end_cnt5    ; 
+reg led;
+reg buzzer;
+
+always  @(posedge clk or negedge rst_n)begin
+    if(rst_n==1'b0)begin
+    led <= 1 ;
+    buzzer<=1;
+    end
+    else if(cnt2=0&&cnt3=0&&cnt4=0&&cnt5=0) begin
+    led <=0;
+    buzzer<=0;     
+    end
+end
+
+endmodule

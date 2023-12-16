@@ -1,0 +1,14 @@
+Analysis & Synthesis Status : Successful - Sun Dec 10 00:45:02 2023
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : SUM_Led
+Top-level Entity Name : SUM_Led
+Family : Cyclone IV E
+Total logic elements : 161
+    Total combinational functions : 157
+    Dedicated logic registers : 87
+Total registers : 87
+Total pins : 19
+Total virtual pins : 0
+Total memory bits : 0
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

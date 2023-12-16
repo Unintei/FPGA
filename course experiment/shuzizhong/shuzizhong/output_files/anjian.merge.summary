@@ -1,0 +1,14 @@
+Partition Merge Status : Successful - Wed Nov 16 17:14:35 2022
+Quartus Prime Version : 18.1.0 Build 625 09/12/2018 SJ Lite Edition
+Revision Name : anjian
+Top-level Entity Name : anjian
+Family : Cyclone IV E
+Total logic elements : 3,278
+    Total combinational functions : 2,617
+    Dedicated logic registers : 1,334
+Total registers : 1334
+Total pins : 46
+Total virtual pins : 0
+Total memory bits : 49,152
+Embedded Multiplier 9-bit elements : 0
+Total PLLs : 0

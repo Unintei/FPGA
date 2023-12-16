@@ -1,0 +1,115 @@
+module seg_disp(  
+	    clk         ,  
+	    rst_n       ,  
+	    segment     ,  
+	    segment_data,  
+	    seg_sel  
+	);  
+	parameter   ZERO            =   8'b1100_0000;  
+	parameter   ONE             =   8'b1111_1001;  
+	parameter   TWO             =   8'b1010_0100;  
+	parameter   THREE           =   8'b1011_0000;  
+	parameter   FOUR            =   8'b1001_1001;  
+	parameter   FIVE            =   8'b1001_0010;  
+	parameter   SIX             =   8'b1000_0010;  
+	parameter   SEVEN           =   8'b1111_1000;  
+	parameter   EIGHT           =   8'b1000_0000;  
+	parameter   NINE            =   8'b1001_0000;  
+	  
+	  
+	  
+	input                   clk         ;  
+	input                   rst_n       ;  
+	input   [23:0]          segment_data;  
+	output  [ 7:0]          segment     ;  
+	output  [ 5:0]          seg_sel     ;  
+	  
+	  
+	reg     [ 7:0]          segment     ;  
+	wire    [ 7:0]          segment_tmp ;  
+	reg     [ 5:0]          seg_sel     ;  
+	  
+	  
+	reg     [15:0]          cnt8        ;  
+	wire                    add_cnt8    ;  
+	wire                    end_cnt8    ;  
+	reg     [ 2:0]          cnt9        ;  
+	wire                    add_cnt9    ;  
+	wire                    end_cnt9    ;  
+	  
+	  
+	  
+	  
+	always @(posedge clk or negedge rst_n) begin   
+	    if (rst_n==0) begin  
+	        cnt8 <= 0;   
+	    end  
+	    else if(add_cnt8) begin  
+	        if(end_cnt8)  
+	            cnt8 <= 0;   
+	        else  
+	            cnt8 <= cnt8+1 ;  
+	   end  
+	end  
+	assign add_cnt8 = 1;  
+	assign end_cnt8 = add_cnt8  && cnt8 == 10000-1 ;  
+	  
+	  
+	  
+	  
+	always @(posedge clk or negedge rst_n) begin   
+	    if (rst_n==0) begin  
+	        cnt9 <= 0;   
+	    end  
+	    else if(add_cnt9) begin  
+	        if(end_cnt9)  
+	            cnt9 <= 0;   
+	        else  
+	            cnt9 <= cnt9+1 ;  
+	   end  
+	end  
+	assign add_cnt9 = end_cnt8;  
+	assign end_cnt9 = add_cnt9  && cnt9 == 6-1 ;  
+	  
+	  
+	  
+	  
+	assign segment_tmp = segment_data[(1+cnt9)*4-1 -:4];  
+	  
+	always@(posedge clk or negedge rst_n)begin  
+	    if(rst_n==1'b0)begin  
+	         segment<=ZERO;  
+	    end  
+	    else  begin  
+	        case(segment_tmp)  
+	            4'd0:segment <= ZERO;  
+	            4'd1:segment <= ONE;  
+	            4'd2:segment <= TWO;  
+	            4'd3:segment <= THREE;  
+	            4'd4:segment <= FOUR;  
+	            4'd5:segment <= FIVE ;  
+	            4'd6:segment <= SIX ;  
+	            4'd7:segment <= SEVEN ;  
+	            4'd8:segment <= EIGHT ;  
+	            4'd9:segment <= NINE ;  
+	            default:begin  
+	                segment<=segment;  
+	            end  
+	        endcase  
+	    end  
+	end  
+	  
+	  
+	  
+	  
+	always@(posedge clk or negedge rst_n)begin  
+	    if(rst_n==1'b0)begin  
+	        seg_sel <= 6'b11_1110;  
+	    end  
+	    else begin  
+	        seg_sel <= ~(6'b1<<cnt9);  
+	    end  
+	end  
+	  
+	endmodule  
+

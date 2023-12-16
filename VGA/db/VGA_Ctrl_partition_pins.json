@@ -1,0 +1,41 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "H_sys",
+					"strict" : false
+				},
+				{
+					"name" : "V_sys",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[11]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[12]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[13]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[14]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[15]",
+					"strict" : false
+				},
+				{
+					"name" : "Sys_Rst_n",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

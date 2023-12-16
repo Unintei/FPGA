@@ -1,0 +1,102 @@
+
+module  SUM_Led
+#(
+//****************************************************//
+//定义晶振频率50M
+    parameter CNT_MAX = 26'd50_000_000 ,
+//定义最小时间单位 0.1ms
+	parameter CNT_MIN = CNT_MAX / 1000_0,
+////定义PWM状态周期  10ms
+//	parameter PWM_state = CNT_MIN * 10
+//定义PWM状态周期    1s
+	parameter T_s = 15'd10000 ,
+//定义闪烁周期  2ms
+	parameter T_ms = 7'd20 
+//****************************************************//
+)
+(
+    input   wire            sys_clk     ,   //输入工作时钟,频率50MHz
+    input   wire            sys_rst_n   ,   //输入复位信号,低电平有效
+
+	output  wire    [7:0]   led_cnt		,
+    output  wire    [7:0]   led_out          //输出行同步信号
+
+);
+
+
+
+//reg   define
+reg     [13:0]  cnt         ;    //0.1ms
+reg     [14:0]  cnt_ms         ;
+reg     [7:0]  	Led_cnt    ;
+reg     [9:0]  	cnt_flag_Ts    ;
+wire    [7:0]   led_cnt
+reg    [7:0]  led       ;   //输出行同步信号
+//********************************************************************//
+//***************************** Main Code ****************************//
+//********************************************************************//
+//cnt:计数器计数0.1ms
+always@(posedge sys_clk or negedge sys_rst_n)
+    if(sys_rst_n == 1'b0)
+        cnt <= 14'b0;
+    else    if(cnt == CNT_MIN)
+        cnt <= 14'b0;
+    else
+        cnt <= cnt + 1'b1;
+		
+//cnt_ms:计数器计数1000ms
+always@(posedge sys_clk or negedge sys_rst_n)
+    if(sys_rst_n == 1'b0)
+        cnt_ms <= 15'b0;
+    else    if(cnt == CNT_MIN && cnt_ms == T_s)
+        cnt_ms <= 15'b0;
+    else	if(cnt == CNT_MIN )
+        cnt_ms <= cnt_ms + 1'b1;
+
+//cnt_flag_Ts:计数器计数满1s
+always@(posedge sys_clk or negedge sys_rst_n)
+    if(sys_rst_n == 1'b0)
+        cnt_flag_Ts <= 10'b0;
+    else	if(cnt == CNT_MIN - 1 && cnt_flag_Ts == T_ms - 1 )
+        cnt_flag_Ts <= 10'b0;
+	else	if(cnt == CNT_MIN - 1  )
+		cnt_flag_Ts <= cnt_flag_Ts +1;
+//cnt_flag_Ts:计数器计数满2ms标志信号
+always@(posedge sys_clk or negedge sys_rst_n)
+    if(sys_rst_n == 1'b0)
+        Led_cnt <= 8'b1;
+    else    if(cnt == CNT_MIN - 1 && cnt_flag_Ts == T_ms - 1)
+        Led_cnt <={Led_cnt[6:0],Led_cnt[7]};
+    else	
+        Led_cnt <= Led_cnt;
+
+
+		
+//led_out_reg:led循环流水
+always@(posedge sys_clk or negedge sys_rst_n)
+	if(sys_rst_n == 1'b0)
+        Led_cnt   <= 8'b1;
+	else if(cnt == CNT_MIN - 1 && cnt_ms == T_s - 1 )	begin
+	case(Led_cnt)
+		8'd0000_0001:led<=8'h01;
+		8'd0000_0010:led<=8'h4f;
+		8'd0000_0100:led<=8'h12;
+		8'd0000_1000:led<=8'h06;
+		8'd0001_0000:led<=8'h4c;
+		8'd0010_0000:led<=8'h24;
+		8'd0100_0000:led<=8'h20;
+		8'd1000_0000:led<=8'h0f;
+
+	endcase
+	end
+
+assign led_cnt=Led_cnt;
+
+endmodule
+
+
+
+
+
+
+

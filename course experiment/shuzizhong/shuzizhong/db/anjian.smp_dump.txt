@@ -1,0 +1,21 @@
+
+State Machine - |anjian|ds18b20_driver:u_ds18b20_driver|s_state_c
+Name s_state_c.S_DONE s_state_c.S_RELE s_state_c.S_SAMP s_state_c.S_SEND s_state_c.S_LOW s_state_c.S_IDLE 
+s_state_c.S_IDLE 0 0 0 0 0 0 
+s_state_c.S_LOW 0 0 0 0 1 1 
+s_state_c.S_SEND 0 0 0 1 0 1 
+s_state_c.S_SAMP 0 0 1 0 0 1 
+s_state_c.S_RELE 0 1 0 0 0 1 
+s_state_c.S_DONE 1 0 0 0 0 1 
+
+State Machine - |anjian|ds18b20_driver:u_ds18b20_driver|m_state_c
+Name m_state_c.M_RTMP m_state_c.M_RCMD m_state_c.M_WAIT m_state_c.M_CONT m_state_c.M_ROMS m_state_c.M_RACK m_state_c.M_RELE m_state_c.M_REST m_state_c.M_IDLE 
+m_state_c.M_IDLE 0 0 0 0 0 0 0 0 0 
+m_state_c.M_REST 0 0 0 0 0 0 0 1 1 
+m_state_c.M_RELE 0 0 0 0 0 0 1 0 1 
+m_state_c.M_RACK 0 0 0 0 0 1 0 0 1 
+m_state_c.M_ROMS 0 0 0 0 1 0 0 0 1 
+m_state_c.M_CONT 0 0 0 1 0 0 0 0 1 
+m_state_c.M_WAIT 0 0 1 0 0 0 0 0 1 
+m_state_c.M_RCMD 0 1 0 0 0 0 0 0 1 
+m_state_c.M_RTMP 1 0 0 0 0 0 0 0 1 

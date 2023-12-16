@@ -1,0 +1,85 @@
+{
+	"partitions" : [
+		{
+			"name" : "Top",
+			"pins" : [
+				{
+					"name" : "sum_cnt[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_cnt[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_cnt[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_cnt[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[0]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[1]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[3]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[4]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[5]",
+					"strict" : false
+				},
+				{
+					"name" : "sum_out[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Led[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Led2[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Led2[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Led2[2]",
+					"strict" : false
+				},
+				{
+					"name" : "sys_clk",
+					"strict" : false
+				},
+				{
+					"name" : "sys_rst_n",
+					"strict" : false
+				}
+			]
+		}
+	]
+}

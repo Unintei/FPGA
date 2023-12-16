@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at uart_tx.v(7): object "CLK" differs only in case from object "clk" in the same scope File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment_6/.v/uart_tx.v Line: 7
+Info (10281): Verilog HDL Declaration information at uart_tx.v(9): object "DATA_bit" differs only in case from object "data_bit" in the same scope File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment_6/.v/uart_tx.v Line: 9
