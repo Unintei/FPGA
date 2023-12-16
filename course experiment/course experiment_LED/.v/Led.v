@@ -1,4 +1,4 @@
-//PWM实验一闪烁灯
+//实验一闪烁灯
 module Led(
     clk     ,
     rst_n   ,
