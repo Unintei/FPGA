@@ -68,6 +68,7 @@ module mdyOV7670CameraDisplay_top(
     wire   [3:0]        key_vld       ;
     wire                display_area  ;
 	wire   [7:0]        sub_addr      ;	 
+
     wire   [15:0]       sd_rdata      ;
     wire                sd_rdata_vld  ;
     wire   [15:0]       fifo2sd_wdata ;
