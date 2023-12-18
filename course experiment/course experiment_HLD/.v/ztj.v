@@ -1,11 +1,11 @@
 ﻿module ztj(
     input clk,
     input rst_n,
-    input  wire [2:0]  sel,
+    input  wire [2:0]  sel,     //初始状态选择
 	
-    output reg [2:0] state_c,//3个led 
-    output reg [4:0] cnt1,
-	output reg [4:0] x
+    output reg [2:0] state_c,   //3个led 
+    output reg [4:0] cnt1,      //当前计数值
+	output reg [4:0] x          //最大值
 );
 //参数定义
 parameter		CNT_MAX = 26'd50_000_000 ;
@@ -18,7 +18,6 @@ parameter		EWR_SNG=3'b011;
 	
 //中间信号定义
 reg [25:0] cnt0;//1s计数器
-
 reg[3:0] state_n;      //状态机次态 下一个状态
 
 //计数器设计
@@ -51,8 +50,8 @@ end
 
 assign add_cnt1 = end_cnt0;
 assign end_cnt1 = add_cnt1 && cnt1==x-1 ;
-////四段式状态机
 
+////四段式状态机
 //第一段：同步时序always模块，格式化描述次态寄存器迁移到现态寄存器(不需更改）
 always@(posedge clk or negedge rst_n)begin
     if(!rst_n)begin

@@ -5,14 +5,16 @@
     input wire [4:0] sn_data,
 	input wire [4:0] x1,
     input wire [4:0] x2,
+
     output reg [3:0] seg_sel,
     output reg [6:0] seg_ment
 );
 //晶振50M 定义2s
 parameter T2MS=100_000;//2ms
 //中间变量定义
-reg [17:0]cnt;
-reg[4:0]        sel_data;//数码管选择信号
+reg     [17:0]    cnt;
+reg     [4:0]     sel_data;//数码管选择信号
+
 //数码管扫描计数器2ms定时
 always @(posedge clk or negedge rst_n)begin
     if(!rst_n)begin
@@ -38,6 +40,7 @@ always  @(posedge clk or negedge rst_n)begin
         seg_sel<={seg_sel[2:0],seg_sel[3]};//位选位移
     end     
 end
+
 //数码管数据分配
 always  @(posedge clk or negedge rst_n)begin
     if(rst_n==1'b0)begin
@@ -53,6 +56,7 @@ always  @(posedge clk or negedge rst_n)begin
         endcase
     end
 end
+
 //译码器
 always  @(posedge clk or negedge rst_n)begin
     if(rst_n==1'b0)begin
