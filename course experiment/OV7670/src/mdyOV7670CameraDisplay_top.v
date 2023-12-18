@@ -10,67 +10,39 @@ The code is designed and produced by MDY Science and Education Co., Ltd, which h
     *************************************************************************************/
    
 module mdyOV7670CameraDisplay_top(
-    clk         ,
-    rst_n       ,
-    key_in      ,
-    pclk        ,
-    vsync       ,
-    href        ,
-    din         ,
-    xclk        ,
-    pwdn        ,
-    sio_c       ,
-    sio_d       ,
-    vga_hys     ,
-    vga_vys     ,
-    vga_rgb     ,
-    cke         ,
-    cs          ,
-    ras         ,
-    cas         ,
-    we          ,
-    dqm         ,
-    sd_addr     ,
-    sd_bank     ,
-    sd_clk      ,
-    dq
+    input   wire                  clk         ,
+    input   wire                  rst_n       ,
+    input   wire [3:0]            key_in      ,
+    input   wire                  pclk        ,
+    input   wire                  vsync       ,
+    input   wire                  href        ,
+    input   wire [7:0]            din         ,
+
+    inout   wire [15:0]           dq
+    inout   wire                  sio_d       ,   
+
+    output  wire                  xclk        ,
+    output  wire                  pwdn        ,
+    output  wire                  sio_c       ,
+    output  wire                  vga_hys     ,
+    output  wire                  vga_vys     ,
+    output  wire [15:0]           vga_rgb     ,
+    output  wire                  cke         ,
+    output  wire                  cs          ,
+    output  wire                  ras         ,
+    output  wire                  cas         ,
+    output  wire                  we          ,
+    output  wire [1 :0]           dqm         ,
+    output  wire [12:0]           sd_addr     ,
+    output  wire [1 :0]           sd_bank     ,
+    output  wire                  sd_clk      ,
 );
-
-    input               clk           ;
-    input               rst_n         ;
-    input               pclk          ;
-    input  [3:0]        key_in        ;
-    input               vsync         ;
-    input               href          ;
-    input  [7:0]        din           ;
-
-    output              xclk          ;
-    output              pwdn          ;
-    output              vga_hys       ;
-    output              vga_vys       ;
-    output [15:0]       vga_rgb       ;
-    output              sio_c         ;
-    output              cs            ;
-    output              ras           ;
-    output              cas           ;
-    output              we            ;
-    output [1 :0]       dqm           ;
-    output [12:0]       sd_addr       ;
-    output [1 :0]       sd_bank       ;
-    output              sd_clk        ;
-	output              cke           ;    
-	
-  
-	 
-    inout  [15:0]       dq            ;
-	inout               sio_d         ;
     wire   [15:0]       dq_in         ;
     wire   [15:0]       dq_out        ;
     wire                dq_out_en     ; 
     wire                en_sio_d_w    ;
     wire                sio_d_w       ;
     wire                sio_d_r       ;
-    wire                xclk_         ;
     wire                clk_100m      ;
     wire                locked        ;
     wire   [3:0]        key_num       ;
@@ -96,15 +68,6 @@ module mdyOV7670CameraDisplay_top(
     wire   [3:0]        key_vld       ;
     wire                display_area  ;
 	wire   [7:0]        sub_addr      ;	 
-    wire                cke           ;
-    wire                cs            ;
-    wire                ras           ;
-    wire                cas           ;
-    wire                we            ;
-    wire   [1 :0]       dqm           ;
-    wire   [12:0]       sd_addr       ;
-    wire   [1 :0]       sd_bank       ;
-    wire                sd_clk        ;
     wire   [15:0]       sd_rdata      ;
     wire                sd_rdata_vld  ;
     wire   [15:0]       fifo2sd_wdata ;
