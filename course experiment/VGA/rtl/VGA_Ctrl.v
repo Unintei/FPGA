@@ -33,7 +33,7 @@ parameter	V_SYNC	= 10'd2   ,
 			V_FRONT	= 10'd2   ,
 			V_TOTAL	= 10'd525 ;
 							  
-//用aiways语句
+//用always语句
 
 always@ (posedge Clk_int or negedge Sys_Rst_n)begin
 	if(Sys_Rst_n==1'b0)		begin
