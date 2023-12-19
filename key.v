@@ -48,7 +48,7 @@ module key_filter
             filter_flag <= 1'b0;
         end
         else if(n_edge) begin
-            全灭 <= 1'b1;
+            filter_flag <= 1'b1;
         end
         else if(end_cnt) begin
             filter_flag <= 1'b0;
