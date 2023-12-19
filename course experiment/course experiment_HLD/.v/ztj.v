@@ -7,14 +7,15 @@
     output reg [4:0] cnt1,      //当前计数值
 	output reg [4:0] x          //最大值
 );
+
 //参数定义
-parameter		CNT_MAX = 26'd50_000_000 ;
-parameter		CNT_R = 26'd15;
-parameter		CNT_Y = 26'd5 ;
-parameter		CNT_G = 26'd10;
-parameter		EWG_SNR=3'b110;
-parameter		EWY_SNR=3'b101;
-parameter		EWR_SNG=3'b011;
+parameter		CNT_MAX = 26'd5,
+        		CNT_R = 26'd15,
+        		CNT_Y = 26'd5 ,
+        		CNT_G = 26'd10,
+        		EWG_SNR=3'b110,
+        		EWY_SNR=3'b101,
+        		EWR_SNG=3'b011;
 	
 //中间信号定义
 reg [25:0] cnt0;//1s计数器
@@ -36,6 +37,7 @@ end
 assign add_cnt0 =1 ;
 assign end_cnt0 = add_cnt0 && cnt0==1*CNT_MAX-1 ;
 
+//可变计数上限值计数器
 always @(posedge clk or negedge rst_n)begin 
     if(!rst_n)begin
         cnt1 <= 0;
@@ -94,6 +96,7 @@ always@(*)begin
         end
     endcase
 end
+
 //第三段：转移条件
 assign idle2ewg_snr_start    = (state_c==sel &&1) ;
 assign ewg_snr2ewy_snr_start = (state_c==EWG_SNR&&cnt1==x-1&&end_cnt0);

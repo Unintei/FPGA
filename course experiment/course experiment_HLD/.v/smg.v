@@ -9,10 +9,11 @@
     output reg [3:0] seg_sel,
     output reg [6:0] seg_ment
 );
-//晶振50M 定义2s
-parameter T2MS=100_000;//2ms
+//晶振50M 定义5ms
+parameter T2MS=100_000;//5ms
+
 //中间变量定义
-reg     [17:0]    cnt;
+reg     [17:0]    cnt;     //计数器计数值定义
 reg     [4:0]     sel_data;//数码管选择信号
 
 //数码管扫描计数器2ms定时
