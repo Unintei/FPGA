@@ -63,7 +63,7 @@ end
 assign	Rgb_valid = ((  cnt_h >= H_SYNC + H_BACK + H_LEFT )
 					&&( cnt_h <= H_SYNC + H_BACK + H_LEFT +H_VALID )
 					&&( cnt_v >= V_SYNC + V_BACK + V_TOP )
-					&&( cnt_v <= V_SYNC + V_BACK + V_TOTAL + V_TOP ))
+					&&( cnt_v <= V_SYNC + V_BACK + V_VALLD + V_TOP ))
 					?1'b1:1'b0;
 					
 //坐标信号的设计
