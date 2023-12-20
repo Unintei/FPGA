@@ -28,7 +28,7 @@ parameter	H_SYNC	= 10'd96  ,
 parameter	V_SYNC	= 10'd2   ,
 			V_BACK	= 10'd25  ,
 			V_TOP	= 10'd8   ,
-			V_VALLD	= 10'd480 ,
+			V_VALD	= 10'd480 ,
 			V_BOTTOM= 10'd8   ,
 			V_FRONT	= 10'd2   ,
 			V_TOTAL	= 10'd525 ;
@@ -63,7 +63,7 @@ end
 assign	Rgb_valid = ((  cnt_h >= H_SYNC + H_BACK + H_LEFT )
 					&&( cnt_h <= H_SYNC + H_BACK + H_LEFT +H_VALID )
 					&&( cnt_v >= V_SYNC + V_BACK + V_TOP )
-					&&( cnt_v <= V_SYNC + V_BACK + V_VALLD + V_TOP ))
+					&&( cnt_v <= V_SYNC + V_BACK + V_VALD + V_TOP ))
 					?1'b1:1'b0;
 					
 //坐标信号的设计
