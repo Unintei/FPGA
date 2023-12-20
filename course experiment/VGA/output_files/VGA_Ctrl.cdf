@@ -4,7 +4,7 @@ JedecChain;
 	DefaultMfr(6E);
 
 	P ActionCode(Cfg)
-		Device PartName(EP4CE15F23) Path("D:/Users/Unitn i/Documents/Project/FPGA/VGA/output_files/") File("VGA_Ctrl.sof") MfrSpec(OpMask(1));
+		Device PartName(EP4CE15F23) Path("D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/output_files/") File("VGA_Ctrl.sof") MfrSpec(OpMask(1));
 
 ChainEnd;
 

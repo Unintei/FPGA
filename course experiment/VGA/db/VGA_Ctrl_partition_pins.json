@@ -12,6 +12,50 @@
 					"strict" : false
 				},
 				{
+					"name" : "Rgb[0]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[1]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[2]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[3]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[4]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[5]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[6]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[7]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[8]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[9]",
+					"strict" : false
+				},
+				{
+					"name" : "Rgb[10]",
+					"strict" : false
+				},
+				{
 					"name" : "Rgb[11]",
 					"strict" : false
 				},

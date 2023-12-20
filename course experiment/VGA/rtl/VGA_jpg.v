@@ -31,40 +31,40 @@ parameter   RED     =   16'hF800,   //红色
 //********************************************************************//
 
 //jpg_colour:输出像素点色彩信息,根据当前像素点坐标指定当前像素点颜色数据
-// always@(posedge Clk_int or negedge Sys_Rst_n)
-//     if(Sys_Rst_n == 1'b0)
-//         jpg_colour    <= 16'd0;
-//     else    if((jpg_x >= 0) && (jpg_x < (H_VALID/10)*1))
-//         jpg_colour    <=  RED;
-//     else    if((jpg_x >= (H_VALID/10)*1) && (jpg_x < (H_VALID/10)*2))
-//         jpg_colour    <=  ORANGE;
-//     else    if((jpg_x >= (H_VALID/10)*2) && (jpg_x < (H_VALID/10)*3))
-//         jpg_colour    <=  YELLOW;
-//     else    if((jpg_x >= (H_VALID/10)*3) && (jpg_x < (H_VALID/10)*4))
-//         jpg_colour    <=  GREEN;
-//     else    if((jpg_x >= (H_VALID/10)*4) && (jpg_x < (H_VALID/10)*5))
-//         jpg_colour    <=  CYAN;
-//     else    if((jpg_x >= (H_VALID/10)*5) && (jpg_x < (H_VALID/10)*6))
-//         jpg_colour    <=  BLUE;
-//     else    if((jpg_x >= (H_VALID/10)*6) && (jpg_x < (H_VALID/10)*7))
-//         jpg_colour    <=  PURPPLE;
-//     else    if((jpg_x >= (H_VALID/10)*7) && (jpg_x < (H_VALID/10)*8))
-//         jpg_colour    <=  BLACK;
-//     else    if((jpg_x >= (H_VALID/10)*8) && (jpg_x < (H_VALID/10)*9))
-//         jpg_colour    <=  WHITE;
-//     else    if((jpg_x >= (H_VALID/10)*9) && (jpg_x < H_VALID))
-//         jpg_colour    <=  GRAY;
-//     else
-//         jpg_colour    <=  BLACK;
-
 always@(posedge Clk_int or negedge Sys_Rst_n)
     if(Sys_Rst_n == 1'b0)
         jpg_colour    <= 16'd0;
-     else    if((jpg_x - 100) * (jpg_x -200)+(jpg_y - 200) * (jpg_y - 300)<=1000)
-         jpg_colour    <=  RED;
-
+    else    if((jpg_x >= 0) && (jpg_x < (H_VALID/10)*1))
+        jpg_colour    <=  RED;
+    else    if((jpg_x >= (H_VALID/10)*1) && (jpg_x < (H_VALID/10)*2))
+        jpg_colour    <=  ORANGE;
+    else    if((jpg_x >= (H_VALID/10)*2) && (jpg_x < (H_VALID/10)*3))
+        jpg_colour    <=  YELLOW;
+    else    if((jpg_x >= (H_VALID/10)*3) && (jpg_x < (H_VALID/10)*4))
+        jpg_colour    <=  GREEN;
+    else    if((jpg_x >= (H_VALID/10)*4) && (jpg_x < (H_VALID/10)*5))
+        jpg_colour    <=  CYAN;
+    else    if((jpg_x >= (H_VALID/10)*5) && (jpg_x < (H_VALID/10)*6))
+        jpg_colour    <=  BLUE;
+    else    if((jpg_x >= (H_VALID/10)*6) && (jpg_x < (H_VALID/10)*7))
+        jpg_colour    <=  PURPPLE;
+    else    if((jpg_x >= (H_VALID/10)*7) && (jpg_x < (H_VALID/10)*8))
+        jpg_colour    <=  BLACK;
+    else    if((jpg_x >= (H_VALID/10)*8) && (jpg_x < (H_VALID/10)*9))
+        jpg_colour    <=  WHITE;
+    else    if((jpg_x >= (H_VALID/10)*9) && (jpg_x < H_VALID))
+        jpg_colour    <=  GRAY;
     else
         jpg_colour    <=  BLACK;
+
+// always@(posedge Clk_int or negedge Sys_Rst_n)
+//     if(Sys_Rst_n == 1'b0)
+//         jpg_colour    <= 16'd0;
+//      else    if((jpg_x - 100) * (jpg_x -200)+(jpg_y - 200) * (jpg_y - 300)<=1000)
+//          jpg_colour    <=  RED;
+
+//     else
+//         jpg_colour    <=  BLACK;
 
 
 
