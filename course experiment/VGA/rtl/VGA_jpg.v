@@ -64,7 +64,6 @@ always@(posedge Clk_int or negedge Sys_Rst_n)
         jpg    <= 4'b0001;
      else    if(key_down[0])
         jpg    <=  {jpg[0],jpg[3:1]};
-
      else    if(key_down[1])
         jpg    <=  {jpg[2:0],jpg[3]};
 
