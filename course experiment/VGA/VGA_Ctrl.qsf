@@ -43,9 +43,6 @@ set_global_assignment -name TOP_LEVEL_ENTITY VGA_Top
 set_global_assignment -name ORIGINAL_QUARTUS_VERSION 22.1STD.2
 set_global_assignment -name PROJECT_CREATION_TIME_DATE "18:53:44  OCTOBER 31, 2023"
 set_global_assignment -name LAST_QUARTUS_VERSION "22.1std.2 Lite Edition"
-set_global_assignment -name VERILOG_FILE rtl/VGA_Top.v
-set_global_assignment -name VERILOG_FILE rtl/VGA_jpg.v
-set_global_assignment -name VERILOG_FILE rtl/VGA_Ctrl.v
 set_global_assignment -name PROJECT_OUTPUT_DIRECTORY output_files
 set_global_assignment -name MIN_CORE_JUNCTION_TEMP 0
 set_global_assignment -name MAX_CORE_JUNCTION_TEMP 85
@@ -58,7 +55,6 @@ set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_symbol
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_signal_integrity
 set_global_assignment -name EDA_GENERATE_FUNCTIONAL_NETLIST OFF -section_id eda_board_design_boundary_scan
-set_global_assignment -name QIP_FILE VGA/PLL.qip
 set_global_assignment -name PARTITION_NETLIST_TYPE SOURCE -section_id Top
 set_global_assignment -name PARTITION_FITTER_PRESERVATION_LEVEL PLACEMENT_AND_ROUTING -section_id Top
 set_global_assignment -name PARTITION_COLOR 16764057 -section_id Top
@@ -82,4 +78,13 @@ set_location_assignment PIN_C15 -to Rgb[0]
 set_location_assignment PIN_G1 -to Sys_clk
 set_location_assignment PIN_AB12 -to Sys_Rst_n
 set_location_assignment PIN_D20 -to V_sys
+set_global_assignment -name VERILOG_FILE rtl/key.v
+set_global_assignment -name VERILOG_FILE rtl/VGA_Top.v
+set_global_assignment -name VERILOG_FILE rtl/VGA_jpg.v
+set_global_assignment -name VERILOG_FILE rtl/VGA_Ctrl.v
+set_global_assignment -name QIP_FILE VGA/PLL.qip
+set_global_assignment -name POWER_PRESET_COOLING_SOLUTION "23 MM HEAT SINK WITH 200 LFPM AIRFLOW"
+set_global_assignment -name POWER_BOARD_THERMAL_MODEL "NONE (CONSERVATIVE)"
+set_location_assignment PIN_V14 -to key_in[1]
+set_location_assignment PIN_V13 -to key_in[0]
 set_instance_assignment -name PARTITION_HIERARCHY root_partition -to | -section_id Top

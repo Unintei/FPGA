@@ -1,5 +1,5 @@
 Analysis & Synthesis report for VGA_Ctrl
-Wed Dec 20 23:28:08 2023
+Thu Dec 21 10:20:05 2023
 Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 
 
@@ -16,14 +16,16 @@ Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
   8. Analysis & Synthesis IP Cores Summary
   9. Registers Removed During Synthesis
  10. General Register Statistics
- 11. Multiplexer Restructuring Statistics (Restructuring Performed)
- 12. Parameter Settings for User Entity Instance: PLL:PLL_inst|altpll:altpll_component
- 13. Parameter Settings for User Entity Instance: VGA_Ctrl:VGA_Ctrl_inst
- 14. Parameter Settings for User Entity Instance: VGA_jpg:VGA_jpg_inst
- 15. altpll Parameter Settings by Entity Instance
- 16. Post-Synthesis Netlist Statistics for Top Partition
- 17. Elapsed Time Per Partition
- 18. Analysis & Synthesis Messages
+ 11. Inverted Register Statistics
+ 12. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 13. Parameter Settings for User Entity Instance: PLL:PLL_inst|altpll:altpll_component
+ 14. Parameter Settings for User Entity Instance: VGA_Ctrl:VGA_Ctrl_inst
+ 15. Parameter Settings for User Entity Instance: VGA_jpg:VGA_jpg_inst
+ 16. Parameter Settings for User Entity Instance: key_filter:key
+ 17. altpll Parameter Settings by Entity Instance
+ 18. Post-Synthesis Netlist Statistics for Top Partition
+ 19. Elapsed Time Per Partition
+ 20. Analysis & Synthesis Messages
 
 
 
@@ -50,16 +52,16 @@ https://fpgasoftware.intel.com/eula.
 +-------------------------------------------------------------------------------------+
 ; Analysis & Synthesis Summary                                                        ;
 +------------------------------------+------------------------------------------------+
-; Analysis & Synthesis Status        ; Successful - Wed Dec 20 23:28:08 2023          ;
+; Analysis & Synthesis Status        ; Successful - Thu Dec 21 10:20:05 2023          ;
 ; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
 ; Revision Name                      ; VGA_Ctrl                                       ;
 ; Top-level Entity Name              ; VGA_Top                                        ;
 ; Family                             ; Cyclone IV E                                   ;
-; Total logic elements               ; 92                                             ;
-;     Total combinational functions  ; 92                                             ;
-;     Dedicated logic registers      ; 27                                             ;
-; Total registers                    ; 27                                             ;
-; Total pins                         ; 20                                             ;
+; Total logic elements               ; 107                                            ;
+;     Total combinational functions  ; 102                                            ;
+;     Dedicated logic registers      ; 56                                             ;
+; Total registers                    ; 56                                             ;
+; Total pins                         ; 22                                             ;
 ; Total virtual pins                 ; 0                                              ;
 ; Total memory bits                  ; 0                                              ;
 ; Embedded Multiplier 9-bit elements ; 0                                              ;
@@ -175,6 +177,7 @@ https://fpgasoftware.intel.com/eula.
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
 ; File Name with User-Entered Path ; Used in Netlist ; File Type                    ; File Name with Absolute Path                                                  ; Library ;
 +----------------------------------+-----------------+------------------------------+-------------------------------------------------------------------------------+---------+
+; rtl/key.v                        ; yes             ; User Verilog HDL File        ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v       ;         ;
 ; rtl/VGA_Top.v                    ; yes             ; User Verilog HDL File        ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v   ;         ;
 ; rtl/VGA_jpg.v                    ; yes             ; User Verilog HDL File        ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_jpg.v   ;         ;
 ; rtl/VGA_Ctrl.v                   ; yes             ; User Verilog HDL File        ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Ctrl.v  ;         ;
@@ -193,23 +196,23 @@ https://fpgasoftware.intel.com/eula.
 +---------------------------------------------+---------------------------------------------------------------------------------+
 ; Resource                                    ; Usage                                                                           ;
 +---------------------------------------------+---------------------------------------------------------------------------------+
-; Estimated Total logic elements              ; 92                                                                              ;
+; Estimated Total logic elements              ; 107                                                                             ;
 ;                                             ;                                                                                 ;
-; Total combinational functions               ; 92                                                                              ;
+; Total combinational functions               ; 102                                                                             ;
 ; Logic element usage by number of LUT inputs ;                                                                                 ;
-;     -- 4 input functions                    ; 49                                                                              ;
+;     -- 4 input functions                    ; 40                                                                              ;
 ;     -- 3 input functions                    ; 8                                                                               ;
-;     -- <=2 input functions                  ; 35                                                                              ;
+;     -- <=2 input functions                  ; 54                                                                              ;
 ;                                             ;                                                                                 ;
 ; Logic elements by mode                      ;                                                                                 ;
-;     -- normal mode                          ; 74                                                                              ;
-;     -- arithmetic mode                      ; 18                                                                              ;
+;     -- normal mode                          ; 65                                                                              ;
+;     -- arithmetic mode                      ; 37                                                                              ;
 ;                                             ;                                                                                 ;
-; Total registers                             ; 27                                                                              ;
-;     -- Dedicated logic registers            ; 27                                                                              ;
+; Total registers                             ; 56                                                                              ;
+;     -- Dedicated logic registers            ; 56                                                                              ;
 ;     -- I/O registers                        ; 0                                                                               ;
 ;                                             ;                                                                                 ;
-; I/O pins                                    ; 20                                                                              ;
+; I/O pins                                    ; 22                                                                              ;
 ;                                             ;                                                                                 ;
 ; Embedded Multiplier 9-bit elements          ; 0                                                                               ;
 ;                                             ;                                                                                 ;
@@ -217,9 +220,9 @@ https://fpgasoftware.intel.com/eula.
 ;     -- PLLs                                 ; 1                                                                               ;
 ;                                             ;                                                                                 ;
 ; Maximum fan-out node                        ; PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated|wire_pll1_clk[0] ;
-; Maximum fan-out                             ; 29                                                                              ;
-; Total fan-out                               ; 409                                                                             ;
-; Average fan-out                             ; 2.56                                                                            ;
+; Maximum fan-out                             ; 58                                                                              ;
+; Total fan-out                               ; 538                                                                             ;
+; Average fan-out                             ; 2.65                                                                            ;
 +---------------------------------------------+---------------------------------------------------------------------------------+
 
 
@@ -228,12 +231,13 @@ https://fpgasoftware.intel.com/eula.
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------+-------------+--------------+
 ; Compilation Hierarchy Node           ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                                                     ; Entity Name ; Library Name ;
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------+-------------+--------------+
-; |VGA_Top                             ; 92 (1)              ; 27 (0)                    ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |VGA_Top                                                                ; VGA_Top     ; work         ;
+; |VGA_Top                             ; 102 (1)             ; 56 (0)                    ; 0           ; 0            ; 0       ; 0         ; 22   ; 0            ; |VGA_Top                                                                ; VGA_Top     ; work         ;
 ;    |PLL:PLL_inst|                    ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|PLL:PLL_inst                                                   ; PLL         ; work         ;
 ;       |altpll:altpll_component|      ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|PLL:PLL_inst|altpll:altpll_component                           ; altpll      ; work         ;
 ;          |PLL_altpll:auto_generated| ; 0 (0)               ; 0 (0)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated ; PLL_altpll  ; work         ;
-;    |VGA_Ctrl:VGA_Ctrl_inst|          ; 66 (66)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|VGA_Ctrl:VGA_Ctrl_inst                                         ; VGA_Ctrl    ; work         ;
-;    |VGA_jpg:VGA_jpg_inst|            ; 25 (25)             ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|VGA_jpg:VGA_jpg_inst                                           ; VGA_jpg     ; work         ;
+;    |VGA_Ctrl:VGA_Ctrl_inst|          ; 57 (57)             ; 20 (20)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|VGA_Ctrl:VGA_Ctrl_inst                                         ; VGA_Ctrl    ; work         ;
+;    |VGA_jpg:VGA_jpg_inst|            ; 9 (9)               ; 7 (7)                     ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|VGA_jpg:VGA_jpg_inst                                           ; VGA_jpg     ; work         ;
+;    |key_filter:key|                  ; 35 (35)             ; 29 (29)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |VGA_Top|key_filter:key                                                 ; key_filter  ; work         ;
 +--------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+-------------------------------------------------------------------------+-------------+--------------+
 Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
 
@@ -247,19 +251,17 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------+--------------+---------+--------------+--------------+-----------------------+-----------------+
 
 
-+------------------------------------------------------------------------------------------+
-; Registers Removed During Synthesis                                                       ;
-+----------------------------------------+-------------------------------------------------+
-; Register name                          ; Reason for Removal                              ;
-+----------------------------------------+-------------------------------------------------+
-; VGA_jpg:VGA_jpg_inst|jpg_colour[2]     ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[0]  ;
-; VGA_jpg:VGA_jpg_inst|jpg_colour[12,14] ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[15] ;
-; VGA_jpg:VGA_jpg_inst|jpg_colour[11]    ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[13] ;
-; VGA_jpg:VGA_jpg_inst|jpg_colour[7]     ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[9]  ;
-; VGA_jpg:VGA_jpg_inst|jpg_colour[5,6]   ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[8]  ;
-; VGA_jpg:VGA_jpg_inst|jpg_colour[1,3]   ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[4]  ;
-; Total Number of Removed Registers = 9  ;                                                 ;
-+----------------------------------------+-------------------------------------------------+
++-------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                        ;
++-----------------------------------------+-------------------------------------------------+
+; Register name                           ; Reason for Removal                              ;
++-----------------------------------------+-------------------------------------------------+
+; VGA_jpg:VGA_jpg_inst|jpg_colour[1..4]   ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[0]  ;
+; VGA_jpg:VGA_jpg_inst|jpg_colour[11..14] ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[15] ;
+; VGA_jpg:VGA_jpg_inst|jpg_colour[5..8]   ; Merged with VGA_jpg:VGA_jpg_inst|jpg_colour[9]  ;
+; VGA_jpg:VGA_jpg_inst|jpg_colour[0]      ; Stuck at GND due to stuck port data_in          ;
+; Total Number of Removed Registers = 13  ;                                                 ;
++-----------------------------------------+-------------------------------------------------+
 
 
 +------------------------------------------------------+
@@ -267,14 +269,30 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +----------------------------------------------+-------+
 ; Statistic                                    ; Value ;
 +----------------------------------------------+-------+
-; Total registers                              ; 27    ;
-; Number of registers using Synchronous Clear  ; 0     ;
+; Total registers                              ; 56    ;
+; Number of registers using Synchronous Clear  ; 20    ;
 ; Number of registers using Synchronous Load   ; 0     ;
-; Number of registers using Asynchronous Clear ; 27    ;
+; Number of registers using Asynchronous Clear ; 56    ;
 ; Number of registers using Asynchronous Load  ; 0     ;
-; Number of registers using Clock Enable       ; 0     ;
+; Number of registers using Clock Enable       ; 26    ;
 ; Number of registers using Preset             ; 0     ;
 +----------------------------------------------+-------+
+
+
++--------------------------------------------------+
+; Inverted Register Statistics                     ;
++----------------------------------------+---------+
+; Inverted Register                      ; Fan out ;
++----------------------------------------+---------+
+; VGA_jpg:VGA_jpg_inst|jpg[0]            ; 7       ;
+; key_filter:key|key_r2[1]               ; 3       ;
+; key_filter:key|key_r2[0]               ; 3       ;
+; key_filter:key|key_r1[0]               ; 3       ;
+; key_filter:key|key_r1[1]               ; 3       ;
+; key_filter:key|key_r0[0]               ; 1       ;
+; key_filter:key|key_r0[1]               ; 1       ;
+; Total number of inverted registers = 7 ;         ;
++----------------------------------------+---------+
 
 
 +-----------------------------------------------------------------------------------------------------------------------------------------------------------+
@@ -282,9 +300,9 @@ Note: For table entries with two numbers listed, the numbers in parentheses indi
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 ; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                  ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
-; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |VGA_Top|VGA_Ctrl:VGA_Ctrl_inst|cnt_v[0]    ;
-; 3:1                ; 2 bits    ; 4 LEs         ; 4 LEs                ; 0 LEs                  ; Yes        ; |VGA_Top|VGA_jpg:VGA_jpg_inst|jpg_colour[9] ;
-; 7:1                ; 4 bits    ; 16 LEs        ; 16 LEs               ; 0 LEs                  ; Yes        ; |VGA_Top|VGA_jpg:VGA_jpg_inst|jpg_colour[0] ;
+; 3:1                ; 10 bits   ; 20 LEs        ; 10 LEs               ; 10 LEs                 ; Yes        ; |VGA_Top|VGA_Ctrl:VGA_Ctrl_inst|cnt_v[9]    ;
+; 3:1                ; 3 bits    ; 6 LEs         ; 3 LEs                ; 3 LEs                  ; Yes        ; |VGA_Top|VGA_jpg:VGA_jpg_inst|jpg[3]        ;
+; 5:1                ; 3 bits    ; 9 LEs         ; 6 LEs                ; 3 LEs                  ; Yes        ; |VGA_Top|VGA_jpg:VGA_jpg_inst|jpg_colour[9] ;
 +--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------+
 
 
@@ -706,6 +724,17 @@ Note: In order to hide this table in the UI and the text report file, please set
 Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
 
 
++-------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: key_filter:key ;
++----------------+---------+----------------------------------+
+; Parameter Name ; Value   ; Type                             ;
++----------------+---------+----------------------------------+
+; KEY_W          ; 2       ; Signed Integer                   ;
+; DELAY_TIME     ; 1000000 ; Signed Integer                   ;
++----------------+---------+----------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
 +----------------------------------------------------------------------+
 ; altpll Parameter Settings by Entity Instance                         ;
 +-------------------------------+--------------------------------------+
@@ -728,21 +757,24 @@ Note: In order to hide this table in the UI and the text report file, please set
 +-----------------------+-----------------------------+
 ; Type                  ; Count                       ;
 +-----------------------+-----------------------------+
-; boundary_port         ; 20                          ;
-; cycloneiii_ff         ; 27                          ;
-;     CLR               ; 27                          ;
-; cycloneiii_lcell_comb ; 94                          ;
-;     arith             ; 18                          ;
-;         2 data inputs ; 18                          ;
-;     normal            ; 76                          ;
-;         1 data inputs ; 4                           ;
-;         2 data inputs ; 15                          ;
+; boundary_port         ; 22                          ;
+; cycloneiii_ff         ; 56                          ;
+;     CLR               ; 30                          ;
+;     ENA CLR           ; 6                           ;
+;     ENA CLR SCLR      ; 20                          ;
+; cycloneiii_lcell_comb ; 105                         ;
+;     arith             ; 37                          ;
+;         2 data inputs ; 37                          ;
+;     normal            ; 68                          ;
+;         0 data inputs ; 1                           ;
+;         1 data inputs ; 7                           ;
+;         2 data inputs ; 12                          ;
 ;         3 data inputs ; 8                           ;
-;         4 data inputs ; 49                          ;
+;         4 data inputs ; 40                          ;
 ; cycloneiii_pll        ; 1                           ;
 ;                       ;                             ;
-; Max LUT depth         ; 8.00                        ;
-; Average LUT depth     ; 4.61                        ;
+; Max LUT depth         ; 5.00                        ;
+; Average LUT depth     ; 2.87                        ;
 +-----------------------+-----------------------------+
 
 
@@ -761,10 +793,12 @@ Note: In order to hide this table in the UI and the text report file, please set
 Info: *******************************************************************
 Info: Running Quartus Prime Analysis & Synthesis
     Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
-    Info: Processing started: Wed Dec 20 23:27:58 2023
+    Info: Processing started: Thu Dec 21 10:19:52 2023
 Info: Command: quartus_map --read_settings_files=on --write_settings_files=off VGA_Ctrl -c VGA_Ctrl
 Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
 Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file rtl/key.v
+    Info (12023): Found entity 1: key_filter File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 1
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga_top.v
     Info (12023): Found entity 1: VGA_Top File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 6
 Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga_jpg.v
@@ -773,8 +807,12 @@ Info (12021): Found 1 design units, including 1 entities, in source file rtl/vga
     Info (12023): Found entity 1: VGA_Ctrl File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Ctrl.v Line: 5
 Info (12021): Found 1 design units, including 1 entities, in source file vga/pll.v
     Info (12023): Found entity 1: PLL File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/VGA/PLL.v Line: 40
+Warning (10236): Verilog HDL Implicit Net warning at key.v(41): created implicit net for "n_edge" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 41
+Warning (10236): Verilog HDL Implicit Net warning at key.v(43): created implicit net for "p_edge" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 43
+Warning (10236): Verilog HDL Implicit Net warning at key.v(79): created implicit net for "add_cnt" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 79
+Warning (10236): Verilog HDL Implicit Net warning at key.v(80): created implicit net for "end_cnt" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 80
 Info (12127): Elaborating entity "VGA_Top" for the top level hierarchy
-Info (12128): Elaborating entity "PLL" for hierarchy "PLL:PLL_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 41
+Info (12128): Elaborating entity "PLL" for hierarchy "PLL:PLL_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 42
 Info (12128): Elaborating entity "altpll" for hierarchy "PLL:PLL_inst|altpll:altpll_component" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/VGA/PLL.v Line: 95
 Info (12130): Elaborated megafunction instantiation "PLL:PLL_inst|altpll:altpll_component" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/VGA/PLL.v Line: 95
 Info (12133): Instantiated megafunction "PLL:PLL_inst|altpll:altpll_component" with the following parameter: File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/VGA/PLL.v Line: 95
@@ -836,20 +874,33 @@ Info (12133): Instantiated megafunction "PLL:PLL_inst|altpll:altpll_component" w
 Info (12021): Found 1 design units, including 1 entities, in source file db/pll_altpll.v
     Info (12023): Found entity 1: PLL_altpll File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/db/pll_altpll.v Line: 30
 Info (12128): Elaborating entity "PLL_altpll" for hierarchy "PLL:PLL_inst|altpll:altpll_component|PLL_altpll:auto_generated" File: d:/app/quartus/quartus/libraries/megafunctions/altpll.tdf Line: 898
-Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "VGA_Ctrl:VGA_Ctrl_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 55
-Info (12128): Elaborating entity "VGA_jpg" for hierarchy "VGA_jpg:VGA_jpg_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 66
+Info (12128): Elaborating entity "VGA_Ctrl" for hierarchy "VGA_Ctrl:VGA_Ctrl_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 56
+Info (12128): Elaborating entity "VGA_jpg" for hierarchy "VGA_jpg:VGA_jpg_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 69
+Info (12128): Elaborating entity "key_filter" for hierarchy "key_filter:key" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 77
+Warning (10230): Verilog HDL assignment warning at key.v(26): truncated value with size 32 to match size of target (2) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 26
+Warning (10230): Verilog HDL assignment warning at key.v(27): truncated value with size 32 to match size of target (2) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 27
+Warning (10230): Verilog HDL assignment warning at key.v(28): truncated value with size 32 to match size of target (2) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 28
+Warning (10230): Verilog HDL assignment warning at key.v(71): truncated value with size 32 to match size of target (20) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/key.v Line: 71
+Info (13000): Registers with preset signals will power-up high File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_jpg.v Line: 65
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Warning (13024): Output pins are stuck at VCC or GND
+    Warning (13410): Pin "Rgb[0]" is stuck at GND File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 15
+    Warning (13410): Pin "Rgb[1]" is stuck at GND File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 15
+    Warning (13410): Pin "Rgb[2]" is stuck at GND File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 15
+    Warning (13410): Pin "Rgb[3]" is stuck at GND File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 15
+    Warning (13410): Pin "Rgb[4]" is stuck at GND File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/VGA/rtl/VGA_Top.v Line: 15
 Info (286030): Timing-Driven Synthesis is running
 Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
     Info (16011): Adding 1 node(s), including 0 DDIO, 1 PLL, 0 transceiver and 0 LCELL
-Info (21057): Implemented 113 device resources after synthesis - the final resource count might be different
-    Info (21058): Implemented 2 input pins
+Info (21057): Implemented 130 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 4 input pins
     Info (21059): Implemented 18 output pins
-    Info (21061): Implemented 92 logic cells
+    Info (21061): Implemented 107 logic cells
     Info (21065): Implemented 1 PLLs
-Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 1 warning
-    Info: Peak virtual memory: 4848 megabytes
-    Info: Processing ended: Wed Dec 20 23:28:08 2023
-    Info: Elapsed time: 00:00:10
-    Info: Total CPU time (on all processors): 00:00:10
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 15 warnings
+    Info: Peak virtual memory: 4850 megabytes
+    Info: Processing ended: Thu Dec 21 10:20:05 2023
+    Info: Elapsed time: 00:00:13
+    Info: Total CPU time (on all processors): 00:00:14
 
 

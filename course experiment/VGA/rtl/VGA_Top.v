@@ -7,6 +7,7 @@ module  VGA_Top
 (
     input   wire            Sys_clk     ,   //输入工作时钟,频率50MHz
     input   wire            Sys_Rst_n   ,   //输入复位信号,低电平有效
+    input   wire    [1:0]   key_in      ,   //输入复位信号,低电平有效
 
     output  wire            H_sys       ,   //输出行同步信号
     output  wire            V_sys       ,   //输出场同步信号
@@ -23,7 +24,7 @@ wire            Rst_n   ;   //VGA模块复位信号
 wire    [9:0]   jpg_x   ;   //VGA有效显示区域X轴坐标
 wire    [9:0]   jpg_y   ;   //VGA有效显示区域Y轴坐标
 wire    [15:0]  jpg_colour;   //VGA像素点色彩信息
-
+wire    [1:0]   key_down;   //按键
 //Rst_n:VGA模块复位信号
 assign  Rst_n = (Sys_Rst_n & locked);
 
@@ -61,8 +62,19 @@ VGA_jpg VGA_jpg_inst
     .Sys_Rst_n  (Rst_n      ),  //输入复位信号,低电平有效,1bit
     .jpg_x      (jpg_x      ),  //输入VGA有效显示区域像素点X轴坐标,10bit
     .jpg_y      (jpg_y      ),  //输入VGA有效显示区域像素点Y轴坐标,10bit
+    .key_down   (key_down      ), 
+
 
     .jpg_colour   (jpg_colour   )   //输出像素点色彩信息,16bit
 );
+
+key_filter  key
+(
+    .clk        ( VGA_clk  ),
+    .rst_n      ( Rst_n    ),
+    .key_in     ( key_in  ),
+    .key_down   ( key_down  )
+);
+
 
 endmodule

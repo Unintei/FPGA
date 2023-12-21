@@ -1,15 +1,15 @@
-Fitter Status : Successful - Wed Dec 20 23:28:13 2023
+Fitter Status : Successful - Thu Dec 21 10:20:13 2023
 Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
 Revision Name : VGA_Ctrl
 Top-level Entity Name : VGA_Top
 Family : Cyclone IV E
 Device : EP4CE15F23C8
 Timing Models : Final
-Total logic elements : 92 / 15,408 ( < 1 % )
-    Total combinational functions : 92 / 15,408 ( < 1 % )
-    Dedicated logic registers : 27 / 15,408 ( < 1 % )
-Total registers : 27
-Total pins : 20 / 344 ( 6 % )
+Total logic elements : 106 / 15,408 ( < 1 % )
+    Total combinational functions : 102 / 15,408 ( < 1 % )
+    Dedicated logic registers : 56 / 15,408 ( < 1 % )
+Total registers : 56
+Total pins : 22 / 344 ( 6 % )
 Total virtual pins : 0
 Total memory bits : 0 / 516,096 ( 0 % )
 Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )

@@ -12,26 +12,6 @@
 					"strict" : false
 				},
 				{
-					"name" : "Rgb[0]",
-					"strict" : false
-				},
-				{
-					"name" : "Rgb[1]",
-					"strict" : false
-				},
-				{
-					"name" : "Rgb[2]",
-					"strict" : false
-				},
-				{
-					"name" : "Rgb[3]",
-					"strict" : false
-				},
-				{
-					"name" : "Rgb[4]",
-					"strict" : false
-				},
-				{
 					"name" : "Rgb[5]",
 					"strict" : false
 				},
@@ -77,6 +57,14 @@
 				},
 				{
 					"name" : "Sys_Rst_n",
+					"strict" : false
+				},
+				{
+					"name" : "key_in[0]",
+					"strict" : false
+				},
+				{
+					"name" : "key_in[1]",
 					"strict" : false
 				}
 			]
