@@ -1,0 +1,16 @@
+Fitter Status : Successful - Wed Jan 10 21:11:38 2024
+Quartus Prime Version : 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+Revision Name : Led
+Top-level Entity Name : TOP
+Family : Cyclone IV E
+Device : EP4CE15F23C8
+Timing Models : Final
+Total logic elements : 1,161 / 15,408 ( 8 % )
+    Total combinational functions : 1,134 / 15,408 ( 7 % )
+    Dedicated logic registers : 391 / 15,408 ( 3 % )
+Total registers : 391
+Total pins : 20 / 344 ( 6 % )
+Total virtual pins : 0
+Total memory bits : 0 / 516,096 ( 0 % )
+Embedded Multiplier 9-bit elements : 0 / 112 ( 0 % )
+Total PLLs : 0 / 4 ( 0 % )

@@ -1,0 +1,18 @@
+
+State Machine - |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2
+Name time_flag_2.0111 time_flag_2.0110 time_flag_2.0101 time_flag_2.0100 time_flag_2.0011 time_flag_2.0010 time_flag_2.0001 time_flag_2.0000 time_flag_2.1000 
+time_flag_2.0000 0 0 0 0 0 0 0 0 0 
+time_flag_2.0001 0 0 0 0 0 0 1 1 0 
+time_flag_2.0010 0 0 0 0 0 1 0 1 0 
+time_flag_2.0011 0 0 0 0 1 0 0 1 0 
+time_flag_2.0100 0 0 0 1 0 0 0 1 0 
+time_flag_2.0101 0 0 1 0 0 0 0 1 0 
+time_flag_2.0110 0 1 0 0 0 0 0 1 0 
+time_flag_2.0111 1 0 0 0 0 0 0 1 0 
+time_flag_2.1000 0 0 0 0 0 0 0 1 1 
+
+State Machine - |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_1
+Name time_flag_1.00 time_flag_1.10 time_flag_1.01 
+time_flag_1.00 0 0 0 
+time_flag_1.01 1 0 1 
+time_flag_1.10 1 1 0 

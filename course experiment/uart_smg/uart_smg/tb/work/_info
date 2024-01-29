@@ -1,0 +1,94 @@
+m255
+K4
+z2
+13
+!s112 1.1
+!i10d 8192
+!i10e 25
+!i10f 100
+cModel Technology
+dC:/Users/86131/Desktop/FPGAproject/ztj_jtd_09/tb
+vsmg
+Z0 !s110 1704600589
+!i10b 1
+!s100 bW:Qme`heUMJhJm=E]QB<0
+IM5JZbA2LdW;`Ld@R>G20^1
+Z1 VDg1SIo80bB@j0V0VzS_@n1
+Z2 dC:/Users/86131/Desktop/uart_smg/tb
+w1704599672
+8C:/Users/86131/Desktop/uart_smg/rtl/smg.v
+FC:/Users/86131/Desktop/uart_smg/rtl/smg.v
+L0 1
+Z3 OP;L;10.6c;65
+r1
+!s85 0
+31
+Z4 !s108 1704600589.000000
+!s107 C:/Users/86131/Desktop/uart_smg/rtl/smg.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/86131/Desktop/uart_smg/rtl/smg.v|
+!i113 1
+Z5 o-work work
+Z6 tCvgOpt 0
+vtop
+Z7 !s110 1704600590
+!i10b 1
+!s100 AN2^:DT0ndGHHh[KP2i4`3
+I_ZE3XWAFH4ZVKE5LM?ibn3
+R1
+R2
+w1704599250
+8C:/Users/86131/Desktop/uart_smg/rtl/top.v
+FC:/Users/86131/Desktop/uart_smg/rtl/top.v
+L0 1
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/86131/Desktop/uart_smg/rtl/top.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/86131/Desktop/uart_smg/rtl/top.v|
+!i113 1
+R5
+R6
+vtop_tb
+R0
+!i10b 1
+!s100 jRH37IWb9Z0JMFHebebCX2
+INn@9dZY:;G=QAW?zJ0>P=3
+R1
+R2
+w1704600577
+8C:/Users/86131/Desktop/uart_smg/tb/top_tb.v
+FC:/Users/86131/Desktop/uart_smg/tb/top_tb.v
+L0 3
+R3
+r1
+!s85 0
+31
+R4
+!s107 C:/Users/86131/Desktop/uart_smg/tb/top_tb.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/86131/Desktop/uart_smg/tb/top_tb.v|
+!i113 1
+R5
+R6
+vuart_rx
+R7
+!i10b 1
+!s100 bHBn76Zo65kb?MnRVjZ6_1
+ISKe^2Rje>z2mnjEE4zNYT1
+R1
+R2
+w1704599477
+8C:/Users/86131/Desktop/uart_smg/rtl/uart_rx.v
+FC:/Users/86131/Desktop/uart_smg/rtl/uart_rx.v
+L0 1
+R3
+r1
+!s85 0
+31
+!s108 1704600590.000000
+!s107 C:/Users/86131/Desktop/uart_smg/rtl/uart_rx.v|
+!s90 -reportprogress|300|-work|work|-stats=none|C:/Users/86131/Desktop/uart_smg/rtl/uart_rx.v|
+!i113 1
+R5
+R6

@@ -78,7 +78,9 @@ always@(posedge Clk_int or negedge Sys_Rst_n)
     else    if(jpg[2])
         jpg_colour    <=  YELLOW;
     else    if(jpg[3])
+        if((jpg_x-300)*(jpg_x-300)+(jpg_x-150)*(jpg_x-150)<=1600)
         jpg_colour    <=  GREEN;
-
+        else
+        jpg_colour    <=  YELLOW;
 
 endmodule

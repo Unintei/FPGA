@@ -1,0 +1,601 @@
+Analysis & Synthesis report for Led
+Wed Jan 10 21:11:29 2024
+Quartus Prime Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+
+
+---------------------
+; Table of Contents ;
+---------------------
+  1. Legal Notice
+  2. Analysis & Synthesis Summary
+  3. Analysis & Synthesis Settings
+  4. Parallel Compilation
+  5. Analysis & Synthesis Source Files Read
+  6. Analysis & Synthesis Resource Usage Summary
+  7. Analysis & Synthesis Resource Utilization by Entity
+  8. State Machine - |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2
+  9. State Machine - |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_1
+ 10. Registers Removed During Synthesis
+ 11. General Register Statistics
+ 12. Inverted Register Statistics
+ 13. Multiplexer Restructuring Statistics (Restructuring Performed)
+ 14. Parameter Settings for User Entity Instance: uart_rx:uart_rx_inst
+ 15. Parameter Settings for User Entity Instance: smg:smg_inst
+ 16. Post-Synthesis Netlist Statistics for Top Partition
+ 17. Elapsed Time Per Partition
+ 18. Analysis & Synthesis Messages
+ 19. Analysis & Synthesis Suppressed Messages
+
+
+
+----------------
+; Legal Notice ;
+----------------
+Copyright (C) 2023  Intel Corporation. All rights reserved.
+Your use of Intel Corporation's design tools, logic functions 
+and other software and tools, and any partner logic 
+functions, and any output files from any of the foregoing 
+(including device programming or simulation files), and any 
+associated documentation or information are expressly subject 
+to the terms and conditions of the Intel Program License 
+Subscription Agreement, the Intel Quartus Prime License Agreement,
+the Intel FPGA IP License Agreement, or other applicable license
+agreement, including, without limitation, that your use is for
+the sole purpose of programming logic devices manufactured by
+Intel and sold by Intel or its authorized distributors.  Please
+refer to the applicable agreement for further details, at
+https://fpgasoftware.intel.com/eula.
+
+
+
++-------------------------------------------------------------------------------------+
+; Analysis & Synthesis Summary                                                        ;
++------------------------------------+------------------------------------------------+
+; Analysis & Synthesis Status        ; Successful - Wed Jan 10 21:11:29 2024          ;
+; Quartus Prime Version              ; 22.1std.2 Build 922 07/20/2023 SC Lite Edition ;
+; Revision Name                      ; Led                                            ;
+; Top-level Entity Name              ; TOP                                            ;
+; Family                             ; Cyclone IV E                                   ;
+; Total logic elements               ; 1,170                                          ;
+;     Total combinational functions  ; 1,134                                          ;
+;     Dedicated logic registers      ; 391                                            ;
+; Total registers                    ; 391                                            ;
+; Total pins                         ; 20                                             ;
+; Total virtual pins                 ; 0                                              ;
+; Total memory bits                  ; 0                                              ;
+; Embedded Multiplier 9-bit elements ; 0                                              ;
+; Total PLLs                         ; 0                                              ;
++------------------------------------+------------------------------------------------+
+
+
++------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Settings                                                                              ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Option                                                           ; Setting            ; Default Value      ;
++------------------------------------------------------------------+--------------------+--------------------+
+; Device                                                           ; EP4CE15F23C8       ;                    ;
+; Top-level entity name                                            ; TOP                ; Led                ;
+; Family name                                                      ; Cyclone IV E       ; Cyclone V          ;
+; Use smart compilation                                            ; Off                ; Off                ;
+; Enable parallel Assembler and Timing Analyzer during compilation ; On                 ; On                 ;
+; Enable compact report table                                      ; Off                ; Off                ;
+; Restructure Multiplexers                                         ; Auto               ; Auto               ;
+; Create Debugging Nodes for IP Cores                              ; Off                ; Off                ;
+; Preserve fewer node names                                        ; On                 ; On                 ;
+; Intel FPGA IP Evaluation Mode                                    ; Enable             ; Enable             ;
+; Verilog Version                                                  ; Verilog_2001       ; Verilog_2001       ;
+; VHDL Version                                                     ; VHDL_1993          ; VHDL_1993          ;
+; State Machine Processing                                         ; Auto               ; Auto               ;
+; Safe State Machine                                               ; Off                ; Off                ;
+; Extract Verilog State Machines                                   ; On                 ; On                 ;
+; Extract VHDL State Machines                                      ; On                 ; On                 ;
+; Ignore Verilog initial constructs                                ; Off                ; Off                ;
+; Iteration limit for constant Verilog loops                       ; 5000               ; 5000               ;
+; Iteration limit for non-constant Verilog loops                   ; 250                ; 250                ;
+; Add Pass-Through Logic to Inferred RAMs                          ; On                 ; On                 ;
+; Infer RAMs from Raw Logic                                        ; On                 ; On                 ;
+; Parallel Synthesis                                               ; On                 ; On                 ;
+; DSP Block Balancing                                              ; Auto               ; Auto               ;
+; NOT Gate Push-Back                                               ; On                 ; On                 ;
+; Power-Up Don't Care                                              ; On                 ; On                 ;
+; Remove Redundant Logic Cells                                     ; Off                ; Off                ;
+; Remove Duplicate Registers                                       ; On                 ; On                 ;
+; Ignore CARRY Buffers                                             ; Off                ; Off                ;
+; Ignore CASCADE Buffers                                           ; Off                ; Off                ;
+; Ignore GLOBAL Buffers                                            ; Off                ; Off                ;
+; Ignore ROW GLOBAL Buffers                                        ; Off                ; Off                ;
+; Ignore LCELL Buffers                                             ; Off                ; Off                ;
+; Ignore SOFT Buffers                                              ; On                 ; On                 ;
+; Limit AHDL Integers to 32 Bits                                   ; Off                ; Off                ;
+; Optimization Technique                                           ; Balanced           ; Balanced           ;
+; Carry Chain Length                                               ; 70                 ; 70                 ;
+; Auto Carry Chains                                                ; On                 ; On                 ;
+; Auto Open-Drain Pins                                             ; On                 ; On                 ;
+; Perform WYSIWYG Primitive Resynthesis                            ; Off                ; Off                ;
+; Auto ROM Replacement                                             ; On                 ; On                 ;
+; Auto RAM Replacement                                             ; On                 ; On                 ;
+; Auto DSP Block Replacement                                       ; On                 ; On                 ;
+; Auto Shift Register Replacement                                  ; Auto               ; Auto               ;
+; Allow Shift Register Merging across Hierarchies                  ; Auto               ; Auto               ;
+; Auto Clock Enable Replacement                                    ; On                 ; On                 ;
+; Strict RAM Replacement                                           ; Off                ; Off                ;
+; Allow Synchronous Control Signals                                ; On                 ; On                 ;
+; Force Use of Synchronous Clear Signals                           ; Off                ; Off                ;
+; Auto RAM Block Balancing                                         ; On                 ; On                 ;
+; Auto RAM to Logic Cell Conversion                                ; Off                ; Off                ;
+; Auto Resource Sharing                                            ; Off                ; Off                ;
+; Allow Any RAM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any ROM Size For Recognition                               ; Off                ; Off                ;
+; Allow Any Shift Register Size For Recognition                    ; Off                ; Off                ;
+; Use LogicLock Constraints during Resource Balancing              ; On                 ; On                 ;
+; Ignore translate_off and synthesis_off directives                ; Off                ; Off                ;
+; Timing-Driven Synthesis                                          ; On                 ; On                 ;
+; Report Parameter Settings                                        ; On                 ; On                 ;
+; Report Source Assignments                                        ; On                 ; On                 ;
+; Report Connectivity Checks                                       ; On                 ; On                 ;
+; Ignore Maximum Fan-Out Assignments                               ; Off                ; Off                ;
+; Synchronization Register Chain Length                            ; 2                  ; 2                  ;
+; Power Optimization During Synthesis                              ; Normal compilation ; Normal compilation ;
+; HDL message level                                                ; Level2             ; Level2             ;
+; Suppress Register Optimization Related Messages                  ; Off                ; Off                ;
+; Number of Removed Registers Reported in Synthesis Report         ; 5000               ; 5000               ;
+; Number of Swept Nodes Reported in Synthesis Report               ; 5000               ; 5000               ;
+; Number of Inverted Registers Reported in Synthesis Report        ; 100                ; 100                ;
+; Clock MUX Protection                                             ; On                 ; On                 ;
+; Auto Gated Clock Conversion                                      ; Off                ; Off                ;
+; Block Design Naming                                              ; Auto               ; Auto               ;
+; SDC constraint protection                                        ; Off                ; Off                ;
+; Synthesis Effort                                                 ; Auto               ; Auto               ;
+; Shift Register Replacement - Allow Asynchronous Clear Signal     ; On                 ; On                 ;
+; Pre-Mapping Resynthesis Optimization                             ; Off                ; Off                ;
+; Analysis & Synthesis Message Level                               ; Medium             ; Medium             ;
+; Disable Register Merging Across Hierarchies                      ; Auto               ; Auto               ;
+; Resource Aware Inference For Block RAM                           ; On                 ; On                 ;
++------------------------------------------------------------------+--------------------+--------------------+
+
+
++------------------------------------------+
+; Parallel Compilation                     ;
++----------------------------+-------------+
+; Processors                 ; Number      ;
++----------------------------+-------------+
+; Number detected on machine ; 16          ;
+; Maximum allowed            ; 16          ;
+;                            ;             ;
+; Average used               ; 1.00        ;
+; Maximum used               ; 16          ;
+;                            ;             ;
+; Usage by Processor         ; % Time Used ;
+;     Processor 1            ; 100.0%      ;
+;     Processor 2            ;   0.0%      ;
+;     Processor 3            ;   0.0%      ;
+;     Processor 4            ;   0.0%      ;
+;     Processor 5            ;   0.0%      ;
+;     Processor 6            ;   0.0%      ;
+;     Processor 7            ;   0.0%      ;
+;     Processor 8            ;   0.0%      ;
+;     Processors 9-16        ;   0.0%      ;
++----------------------------+-------------+
+
+
++--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Source Files Read                                                                                                                                                     ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+; File Name with User-Entered Path ; Used in Netlist ; File Type              ; File Name with Absolute Path                                                                       ; Library ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+; ../.v/uart_rx.v                  ; yes             ; User Verilog HDL File  ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/uart_rx.v           ;         ;
+; ../.v/smg.v                      ; yes             ; User Verilog HDL File  ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/smg.v               ;         ;
+; ../.v/moduleRGB_Control.v        ; yes             ; User Verilog HDL File  ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v ;         ;
+; ../.v/TOP.v                      ; yes             ; User Verilog HDL File  ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/TOP.v               ;         ;
+; ../.v/RZ_Code.v                  ; yes             ; User Verilog HDL File  ; D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/RZ_Code.v           ;         ;
++----------------------------------+-----------------+------------------------+----------------------------------------------------------------------------------------------------+---------+
+
+
++---------------------------------------------------------+
+; Analysis & Synthesis Resource Usage Summary             ;
++---------------------------------------------+-----------+
+; Resource                                    ; Usage     ;
++---------------------------------------------+-----------+
+; Estimated Total logic elements              ; 1,170     ;
+;                                             ;           ;
+; Total combinational functions               ; 1134      ;
+; Logic element usage by number of LUT inputs ;           ;
+;     -- 4 input functions                    ; 563       ;
+;     -- 3 input functions                    ; 165       ;
+;     -- <=2 input functions                  ; 406       ;
+;                                             ;           ;
+; Logic elements by mode                      ;           ;
+;     -- normal mode                          ; 770       ;
+;     -- arithmetic mode                      ; 364       ;
+;                                             ;           ;
+; Total registers                             ; 391       ;
+;     -- Dedicated logic registers            ; 391       ;
+;     -- I/O registers                        ; 0         ;
+;                                             ;           ;
+; I/O pins                                    ; 20        ;
+;                                             ;           ;
+; Embedded Multiplier 9-bit elements          ; 0         ;
+;                                             ;           ;
+; Maximum fan-out node                        ; clk~input ;
+; Maximum fan-out                             ; 391       ;
+; Total fan-out                               ; 4894      ;
+; Average fan-out                             ; 3.13      ;
++---------------------------------------------+-----------+
+
+
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Analysis & Synthesis Resource Utilization by Entity                                                                                                                                                                                                           ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+-------------------+--------------+
+; Compilation Hierarchy Node                     ; Combinational ALUTs ; Dedicated Logic Registers ; Memory Bits ; DSP Elements ; DSP 9x9 ; DSP 18x18 ; Pins ; Virtual Pins ; Full Hierarchy Name                            ; Entity Name       ; Library Name ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+-------------------+--------------+
+; |TOP                                           ; 1134 (0)            ; 391 (0)                   ; 0           ; 0            ; 0       ; 0         ; 20   ; 0            ; |TOP                                           ; TOP               ; work         ;
+;    |RZ_Code:RZ_Code_inst1|                     ; 75 (75)             ; 40 (40)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|RZ_Code:RZ_Code_inst1                     ; RZ_Code           ; work         ;
+;    |moduleRGB_Control:moduleRGB_Control_inst0| ; 949 (949)           ; 273 (273)                 ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0 ; moduleRGB_Control ; work         ;
+;    |smg:smg_inst|                              ; 59 (59)             ; 41 (41)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|smg:smg_inst                              ; smg               ; work         ;
+;    |uart_rx:uart_rx_inst|                      ; 51 (51)             ; 37 (37)                   ; 0           ; 0            ; 0       ; 0         ; 0    ; 0            ; |TOP|uart_rx:uart_rx_inst                      ; uart_rx           ; work         ;
++------------------------------------------------+---------------------+---------------------------+-------------+--------------+---------+-----------+------+--------------+------------------------------------------------+-------------------+--------------+
+Note: For table entries with two numbers listed, the numbers in parentheses indicate the number of resources of the given type used by the specific entity alone. The numbers listed outside of parentheses indicate the total resources of the given type used by the specific entity and all of its sub-entities in the hierarchy.
+
+
+Encoding Type:  One-Hot
++---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; State Machine - |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2                                                                                                                  ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; Name             ; time_flag_2.0111 ; time_flag_2.0110 ; time_flag_2.0101 ; time_flag_2.0100 ; time_flag_2.0011 ; time_flag_2.0010 ; time_flag_2.0001 ; time_flag_2.0000 ; time_flag_2.1000 ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+; time_flag_2.0000 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ;
+; time_flag_2.0001 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ; 0                ;
+; time_flag_2.0010 ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 1                ; 0                ;
+; time_flag_2.0011 ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 1                ; 0                ;
+; time_flag_2.0100 ; 0                ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; time_flag_2.0101 ; 0                ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; time_flag_2.0110 ; 0                ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; time_flag_2.0111 ; 1                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 0                ;
+; time_flag_2.1000 ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 0                ; 1                ; 1                ;
++------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+------------------+
+
+
+Encoding Type:  One-Hot
++----------------------------------------------------------------------------+
+; State Machine - |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_1 ;
++----------------+----------------+----------------+-------------------------+
+; Name           ; time_flag_1.00 ; time_flag_1.10 ; time_flag_1.01          ;
++----------------+----------------+----------------+-------------------------+
+; time_flag_1.00 ; 0              ; 0              ; 0                       ;
+; time_flag_1.01 ; 1              ; 0              ; 1                       ;
+; time_flag_1.10 ; 1              ; 1              ; 0                       ;
++----------------+----------------+----------------+-------------------------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------+
+; Registers Removed During Synthesis                                                                                                ;
++------------------------------------------------------------+----------------------------------------------------------------------+
+; Register name                                              ; Reason for Removal                                                   ;
++------------------------------------------------------------+----------------------------------------------------------------------+
+; moduleRGB_Control:moduleRGB_Control_inst0|t[0,1,3..5]      ; Stuck at VCC due to stuck port data_in                               ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[7,10]          ; Stuck at GND due to stuck port data_in                               ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[14,19,22]      ; Stuck at VCC due to stuck port data_in                               ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[26..32]        ; Stuck at GND due to stuck port data_in                               ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[15,17,23,25]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|t[6]           ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[9,12,13,20,21] ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|t[8]           ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[18]            ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|t[11]          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[24]            ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|t[16]          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][8]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][0]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][10]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][12]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][16]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][17]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][18]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][1]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][2]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][8]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][16] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][14]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][21]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][22]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][5]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][6]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][20]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][17] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][19]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][18] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][23]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][22] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][9]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][12] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][11]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][10] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][15]   ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][14] ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][4]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][1]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][3]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][2]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[7][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[3][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[2][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[1][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][7]    ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][6]  ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[22]          ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[23]        ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[17]          ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[20]        ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[18]          ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[19]        ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[14]          ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[15]        ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[9]           ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[12]        ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[10]          ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[11]        ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[0]           ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[8]         ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[6]           ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[7]         ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[1]           ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[4]         ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB[2]           ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|RGB[3]         ;
+; moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[8][13]   ; Lost fanout                                                          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2~11   ; Lost fanout                                                          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2~12   ; Lost fanout                                                          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2~13   ; Lost fanout                                                          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|time_flag_1.00   ; Lost fanout                                                          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2.1000 ; Lost fanout                                                          ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[11]            ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|t[6]           ;
+; moduleRGB_Control:moduleRGB_Control_inst0|t[16]            ; Merged with moduleRGB_Control:moduleRGB_Control_inst0|t[2]           ;
+; Total Number of Removed Registers = 156                    ;                                                                      ;
++------------------------------------------------------------+----------------------------------------------------------------------+
+
+
++------------------------------------------------------+
+; General Register Statistics                          ;
++----------------------------------------------+-------+
+; Statistic                                    ; Value ;
++----------------------------------------------+-------+
+; Total registers                              ; 391   ;
+; Number of registers using Synchronous Clear  ; 151   ;
+; Number of registers using Synchronous Load   ; 40    ;
+; Number of registers using Asynchronous Clear ; 138   ;
+; Number of registers using Asynchronous Load  ; 0     ;
+; Number of registers using Clock Enable       ; 184   ;
+; Number of registers using Preset             ; 0     ;
++----------------------------------------------+-------+
+
+
++---------------------------------------------------+
+; Inverted Register Statistics                      ;
++-----------------------------------------+---------+
+; Inverted Register                       ; Fan out ;
++-----------------------------------------+---------+
+; smg:smg_inst|seg_sel[1]                 ; 5       ;
+; smg:smg_inst|seg_sel[2]                 ; 3       ;
+; smg:smg_inst|seg_sel[3]                 ; 3       ;
+; smg:smg_inst|seg_sel[4]                 ; 3       ;
+; smg:smg_inst|seg_sel[5]                 ; 3       ;
+; smg:smg_inst|seg_sel[6]                 ; 3       ;
+; smg:smg_inst|seg_sel[7]                 ; 3       ;
+; smg:smg_inst|seg_ment[0]                ; 1       ;
+; smg:smg_inst|seg_ment[1]                ; 1       ;
+; smg:smg_inst|seg_ment[2]                ; 1       ;
+; smg:smg_inst|seg_ment[3]                ; 1       ;
+; smg:smg_inst|seg_ment[4]                ; 1       ;
+; smg:smg_inst|seg_ment[5]                ; 1       ;
+; smg:smg_inst|seg_ment[6]                ; 1       ;
+; Total number of inverted registers = 14 ;         ;
++-----------------------------------------+---------+
+
+
++-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------+
+; Multiplexer Restructuring Statistics (Restructuring Performed)                                                                                                              ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; Multiplexer Inputs ; Bus Width ; Baseline Area ; Area if Restructured ; Saving if Restructured ; Registered ; Example Multiplexer Output                                    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+; 3:1                ; 41 bits   ; 82 LEs        ; 41 LEs               ; 41 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|Count2[0]      ;
+; 3:1                ; 41 bits   ; 82 LEs        ; 41 LEs               ; 41 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|Count1[8]      ;
+; 3:1                ; 32 bits   ; 64 LEs        ; 32 LEs               ; 32 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|cnt[21]        ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[0][21] ;
+; 4:1                ; 4 bits    ; 8 LEs         ; 8 LEs                ; 0 LEs                  ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][17] ;
+; 5:1                ; 36 bits   ; 108 LEs       ; 72 LEs               ; 36 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][1]  ;
+; 5:1                ; 22 bits   ; 66 LEs        ; 44 LEs               ; 22 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][6]  ;
+; 5:1                ; 7 bits    ; 21 LEs        ; 7 LEs                ; 14 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[6][13] ;
+; 5:1                ; 14 bits   ; 42 LEs        ; 28 LEs               ; 14 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[5][10] ;
+; 6:1                ; 18 bits   ; 72 LEs        ; 36 LEs               ; 36 LEs                 ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB_reg[4][10] ;
+; 33:1               ; 5 bits    ; 110 LEs       ; 5 LEs                ; 105 LEs                ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|k[3]           ;
+; 10:1               ; 8 bits    ; 48 LEs        ; 48 LEs               ; 0 LEs                  ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|mode_2[0]      ;
+; 35:1               ; 6 bits    ; 138 LEs       ; 36 LEs               ; 102 LEs                ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB[5]         ;
+; 35:1               ; 6 bits    ; 138 LEs       ; 36 LEs               ; 102 LEs                ; Yes        ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|RGB[3]         ;
+; 4:1                ; 3 bits    ; 6 LEs         ; 6 LEs                ; 0 LEs                  ; No         ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_1    ;
+; 10:1               ; 9 bits    ; 54 LEs        ; 54 LEs               ; 0 LEs                  ; No         ; |TOP|moduleRGB_Control:moduleRGB_Control_inst0|time_flag_2    ;
++--------------------+-----------+---------------+----------------------+------------------------+------------+---------------------------------------------------------------+
+
+
++-------------------------------------------------------------------+
+; Parameter Settings for User Entity Instance: uart_rx:uart_rx_inst ;
++----------------+-------+------------------------------------------+
+; Parameter Name ; Value ; Type                                     ;
++----------------+-------+------------------------------------------+
+; BPS            ; 5208  ; Signed Integer                           ;
++----------------+-------+------------------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------------+
+; Parameter Settings for User Entity Instance: smg:smg_inst ;
++----------------+--------+---------------------------------+
+; Parameter Name ; Value  ; Type                            ;
++----------------+--------+---------------------------------+
+; T2MS           ; 100000 ; Signed Integer                  ;
++----------------+--------+---------------------------------+
+Note: In order to hide this table in the UI and the text report file, please set the "Show Parameter Settings in Synthesis Report" option in "Analysis and Synthesis Settings -> More Settings" to "Off".
+
+
++-----------------------------------------------------+
+; Post-Synthesis Netlist Statistics for Top Partition ;
++-----------------------+-----------------------------+
+; Type                  ; Count                       ;
++-----------------------+-----------------------------+
+; boundary_port         ; 20                          ;
+; cycloneiii_ff         ; 391                         ;
+;     CLR               ; 85                          ;
+;     CLR SCLR          ; 5                           ;
+;     ENA               ; 46                          ;
+;     ENA CLR           ; 48                          ;
+;     ENA SCLR          ; 50                          ;
+;     ENA SCLR SLD      ; 14                          ;
+;     ENA SLD           ; 26                          ;
+;     SCLR              ; 82                          ;
+;     plain             ; 35                          ;
+; cycloneiii_lcell_comb ; 1148                        ;
+;     arith             ; 364                         ;
+;         1 data inputs ; 13                          ;
+;         2 data inputs ; 320                         ;
+;         3 data inputs ; 31                          ;
+;     normal            ; 784                         ;
+;         0 data inputs ; 6                           ;
+;         1 data inputs ; 26                          ;
+;         2 data inputs ; 55                          ;
+;         3 data inputs ; 134                         ;
+;         4 data inputs ; 563                         ;
+;                       ;                             ;
+; Max LUT depth         ; 13.30                       ;
+; Average LUT depth     ; 6.41                        ;
++-----------------------+-----------------------------+
+
+
++-------------------------------+
+; Elapsed Time Per Partition    ;
++----------------+--------------+
+; Partition Name ; Elapsed Time ;
++----------------+--------------+
+; Top            ; 00:00:01     ;
++----------------+--------------+
+
+
++-------------------------------+
+; Analysis & Synthesis Messages ;
++-------------------------------+
+Info: *******************************************************************
+Info: Running Quartus Prime Analysis & Synthesis
+    Info: Version 22.1std.2 Build 922 07/20/2023 SC Lite Edition
+    Info: Processing started: Wed Jan 10 21:11:20 2024
+Info: Command: quartus_map --read_settings_files=on --write_settings_files=off Top -c Led
+Warning (18236): Number of processors has not been specified which may cause overloading on shared machines.  Set the global assignment NUM_PARALLEL_PROCESSORS in your QSF to an appropriate value for best performance.
+Info (20030): Parallel compilation is enabled and will use 16 of the 16 processors detected
+Info (12021): Found 1 design units, including 1 entities, in source file /users/unitn i/documents/project/fpga/course experiment/course experiment/.v/uart_rx.v
+    Info (12023): Found entity 1: uart_rx File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/uart_rx.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/unitn i/documents/project/fpga/course experiment/course experiment/.v/smg.v
+    Info (12023): Found entity 1: smg File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/smg.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/unitn i/documents/project/fpga/course experiment/course experiment/.v/modulergb_control.v
+    Info (12023): Found entity 1: moduleRGB_Control File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/unitn i/documents/project/fpga/course experiment/course experiment/.v/top.v
+    Info (12023): Found entity 1: TOP File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/TOP.v Line: 1
+Info (12021): Found 1 design units, including 1 entities, in source file /users/unitn i/documents/project/fpga/course experiment/course experiment/.v/rz_code.v
+    Info (12023): Found entity 1: RZ_Code File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/RZ_Code.v Line: 6
+Info (12021): Found 1 design units, including 1 entities, in source file /users/unitn i/documents/project/fpga/course experiment/course experiment/.v/rgb_control.v
+    Info (12023): Found entity 1: RGB_Control File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/RGB_Control.v Line: 1
+Info (12127): Elaborating entity "TOP" for the top level hierarchy
+Info (12128): Elaborating entity "uart_rx" for hierarchy "uart_rx:uart_rx_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/TOP.v Line: 31
+Warning (10230): Verilog HDL assignment warning at uart_rx.v(60): truncated value with size 32 to match size of target (13) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/uart_rx.v Line: 60
+Warning (10230): Verilog HDL assignment warning at uart_rx.v(74): truncated value with size 32 to match size of target (4) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/uart_rx.v Line: 74
+Info (12128): Elaborating entity "smg" for hierarchy "smg:smg_inst" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/TOP.v Line: 40
+Warning (10230): Verilog HDL assignment warning at smg.v(24): truncated value with size 32 to match size of target (21) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/smg.v Line: 24
+Info (12128): Elaborating entity "moduleRGB_Control" for hierarchy "moduleRGB_Control:moduleRGB_Control_inst0" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/TOP.v Line: 50
+Warning (10240): Verilog HDL Always Construct warning at moduleRGB_Control.v(131): inferring latch(es) for variable "mode_1", which holds its previous value in one or more paths through the always construct File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 131
+Info (10264): Verilog HDL Case Statement information at moduleRGB_Control.v(167): all case item expressions in this case statement are onehot File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 167
+Info (10264): Verilog HDL Case Statement information at moduleRGB_Control.v(292): all case item expressions in this case statement are onehot File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 292
+Info (10264): Verilog HDL Case Statement information at moduleRGB_Control.v(417): all case item expressions in this case statement are onehot File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 417
+Info (10264): Verilog HDL Case Statement information at moduleRGB_Control.v(542): all case item expressions in this case statement are onehot File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 542
+Warning (10230): Verilog HDL assignment warning at moduleRGB_Control.v(680): truncated value with size 32 to match size of target (5) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 680
+Info (10041): Inferred latch for "mode_1[0]" at moduleRGB_Control.v(131) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 131
+Info (10041): Inferred latch for "mode_1[1]" at moduleRGB_Control.v(131) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 131
+Info (12128): Elaborating entity "RZ_Code" for hierarchy "RZ_Code:RZ_Code_inst1" File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/TOP.v Line: 60
+Warning (10230): Verilog HDL assignment warning at RZ_Code.v(62): truncated value with size 32 to match size of target (5) File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/RZ_Code.v Line: 62
+Info (13000): Registers with preset signals will power-up high File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/smg.v Line: 34
+Info (13003): DEV_CLRn pin will set, and not reset, register with preset signal due to NOT Gate Push-Back
+Info (286030): Timing-Driven Synthesis is running
+Info (17049): 6 registers lost all their fanouts during netlist optimizations.
+Info (144001): Generated suppressed messages file D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/quartus/output_files/Led.map.smsg
+Info (16010): Generating hard_block partition "hard_block:auto_generated_inst"
+    Info (16011): Adding 0 node(s), including 0 DDIO, 0 PLL, 0 transceiver and 0 LCELL
+Info (21057): Implemented 1191 device resources after synthesis - the final resource count might be different
+    Info (21058): Implemented 3 input pins
+    Info (21059): Implemented 17 output pins
+    Info (21061): Implemented 1171 logic cells
+Info: Quartus Prime Analysis & Synthesis was successful. 0 errors, 7 warnings
+    Info: Peak virtual memory: 4853 megabytes
+    Info: Processing ended: Wed Jan 10 21:11:29 2024
+    Info: Elapsed time: 00:00:09
+    Info: Total CPU time (on all processors): 00:00:11
+
+
++------------------------------------------+
+; Analysis & Synthesis Suppressed Messages ;
++------------------------------------------+
+The suppressed messages can be found in D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/quartus/output_files/Led.map.smsg.
+
+

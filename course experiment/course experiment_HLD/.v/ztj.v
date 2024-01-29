@@ -19,7 +19,7 @@ parameter		CNT_MAX = 26'd5,
 	
 //中间信号定义
 reg [25:0] cnt0;//1s计数器
-reg[3:0] state_n;      //状态机次态 下一个状态
+reg [3:0] state_n;      //状态机次态 下一个状态
 
 //计数器设计
 always @(posedge clk or negedge rst_n)begin

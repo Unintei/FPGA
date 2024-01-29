@@ -25,7 +25,7 @@ module uart(
     reg    [3:0]        cnt1;//计数bit位
     wire                add_cnt1;
     wire                end_cnt1;
-    reg                 flag_add;//always���ƣ�����Ϊreg�ͣ�������ֵ��0��1
+    reg                 flag_add;
     reg                 rx_uart_ff0;
     reg                 rx_uart_ff1;
     reg                 rx_uart_ff2;
@@ -58,7 +58,7 @@ module uart(
     end
 
     assign add_cnt1 = end_cnt0;
-    assign end_cnt1 = add_cnt1 && cnt1==9-1 ;//bit计数一帧数据
+    assign end_cnt1 = add_cnt1 && cnt1==9-1 ;
 
    
 //rx_uart，边缘检测检测下降沿到来       
@@ -72,7 +72,7 @@ module uart(
         else begin
             rx_uart_ff0<=rx_uart;
             rx_uart_ff1<=rx_uart_ff0;
-            rx_uart_ff2<=rx_uart_ff1;// rx_uart_ff1�ǵ�ǰ̬��rx_uart_ff2��ǰһ̬��
+            rx_uart_ff2<=rx_uart_ff1;
         end
     end
 
@@ -81,11 +81,11 @@ module uart(
         if(rst_n==1'b0)begin
             flag_add<=0;
         end
-        else if(rx_uart_ff1==0&&rx_uart_ff2==1)begin//�����½���
+        else if(rx_uart_ff1==0&&rx_uart_ff2==1)begin
             flag_add<=1;
         end
         else if(end_cnt1)begin
-             flag_add<=0;
+            flag_add<=0;
         end
     end
  
@@ -98,5 +98,5 @@ module uart(
         end
       end
 
-    endmodule
+endmodule
 

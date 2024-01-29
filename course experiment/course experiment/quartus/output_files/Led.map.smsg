@@ -1,0 +1,2 @@
+Info (10281): Verilog HDL Declaration information at smg.v(9): object "T2MS" differs only in case from object "t2ms" in the same scope File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/smg.v Line: 9
+Warning (10268): Verilog HDL information at moduleRGB_Control.v(45): always construct contains both blocking and non-blocking assignments File: D:/Users/Unitn i/Documents/Project/FPGA/course experiment/course experiment/.v/moduleRGB_Control.v Line: 45
