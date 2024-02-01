@@ -3,9 +3,9 @@
 ## 简介
 
 **明德杨801开发板** 
-course experiment为实验代码文件夹
-.py位python学习笔记
-实验文件：
+ course experiment为实验代码文件夹
+ .py位python学习笔记
+ 实验文件：
 
 - 闪烁灯
 -  PWM呼吸灯
